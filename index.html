@@ -7,8 +7,13 @@
   <link rel="stylesheet" href="trivial.css" />
   <script>
   	function validateForm() {
-  		if (document.forms["newgame"].categories.selectedOptions.length != 4) {
-  			alert("Select 4 Categories");
+  		var cats = new Set([
+  			document.forms["newgame"].yellowcat.value, 
+  			document.forms["newgame"].redcat.value,
+  			document.forms["newgame"].bluecat.value,
+  			document.forms["newgame"].green.value])
+  		if (cats.size != 4) {
+  			alert("Select 4 different categories");
   			return false;
   		}
   		if (document.forms["newgame"].player1.value == '') {
@@ -21,17 +26,19 @@
   	function init() {
   		var categories = getCategories();
   		categories.forEach(e => {
-  			document.querySelector("#categories").innerHTML += '<option value="'+e+'">'+e+'</option>'
+  			document.querySelector("#yellowcat").innerHTML += '<option value="'+e+'">'+e+'</option>'
+  			document.querySelector("#redcat").innerHTML += '<option value="'+e+'">'+e+'</option>'
+  			document.querySelector("#bluecat").innerHTML += '<option value="'+e+'">'+e+'</option>'
+  			document.querySelector("#green").innerHTML += '<option value="'+e+'">'+e+'</option>'
   		});
-  		document.querySelector("#categories").setAttribute("size", categories.size);
   		
   	}
 	window.onload = init;
 	</script>
 	<style>
 		select {
-			display: block;
 			margin-bottom: 10px;
+			font-size: 16px;
 		}
 		.input {
 			display: block;
@@ -56,9 +63,25 @@
     </ul>
   </nav>
   <form class="game-form" name="newgame" action="trivial.html" onsubmit="return validateForm()">
-	<label for="categories">Choose 4 categories:</label>
-	<select name="categories" id="categories" multiple>
-	</select>
+  	<div class="input">
+		<label for="yellowcat">Yellow category:</label>
+		<select name="yellowcat" id="yellowcat"></select>
+	</div>
+
+	<div class="input">
+		<label for="redcat">Red category:</label>
+		<select name="redcat" id="redcat"></select>
+	</div>
+
+	<div class="input">
+		<label for="bluecat">Blue category:</label>
+		<select name="bluecat" id="bluecat"></select>
+	</div>
+
+	<div class="input">
+		<label for="green">Green category:</label>
+		<select name="green" id="green"></select>
+	</div>
 
 	<div class="input">
 		<label for="player1">Player 1:</label>
