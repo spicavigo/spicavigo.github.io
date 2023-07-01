@@ -16,6 +16,8 @@ body {
 
 .info {
   margin-top: 85px;
+  background: #aaa;
+  border-radius: 8px;
 }
 
 .yellow {
@@ -23,7 +25,6 @@ body {
   font-size: 24px;
   font-weight: bold;
   padding: 20px;
-  background: brown;
 }
 
 .red {
@@ -31,7 +32,6 @@ body {
   font-size: 24px;
   font-weight: bold;
   padding: 20px;
-  background: brown;
 }
 
 .blue {
@@ -39,7 +39,6 @@ body {
   font-size: 24px;
   font-weight: bold;
   padding: 20px;
-  background: brown;
 }
 
 .green {
@@ -47,7 +46,6 @@ body {
   font-size: 24px;
   font-weight: bold;
   padding: 20px;
-  background: brown;
 }
 
 .grid {
@@ -69,6 +67,10 @@ body {
   aspect-ratio: 1;
   text-align: center;
   grid-template-columns: repeat(2, 1fr);
+}
+
+.cell span {
+  grid-column: span 2;
 }
 
 .merged-cell {

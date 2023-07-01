@@ -71,10 +71,7 @@ function showStatus(text) {
 	e.innerHTML = text
 	e.style.display = "block";
 	e.style.opacity = 1;
-	setTimeout(function() {
-		e.style.display = "none";
-		e.style.opacity = 0;
-	}, 2000)
+	
 	
 }
 
@@ -107,7 +104,7 @@ function setPlayerInHeader() {
 
 function nextPlayer() {
 	// Global var
-	CurrentPlayer = (CurrentPlayer + 1)%4;
+	CurrentPlayer = (CurrentPlayer + 1)%NUM_PLAYERS;
   	// In the header
   	setPlayerInHeader();
 }
@@ -228,6 +225,11 @@ function doRoll() {
   						var category = getCategory(PlayerPositions[CurrentPlayer]);
   						addWedge(CurrentPlayer, category);
   					}
+  					if (PlayerPositions[CurrentPlayer] == CENTER_CELL_ID && PlayerWedges[CurrentPlayer].size == 4) {
+  						showStatus(PlayerNames[CurrentPlayer] + " Won!!!");
+  						// Disable roll button
+						document.getElementById("roll-button").style.visibility = "hidden";
+  					}
   				}
   			});
   		}
@@ -253,10 +255,10 @@ function initBoard() {
 	NUM_PLAYERS = PlayerNames.length;
 
 	ColorToCategory = {
-		"yellow": u.getAll("categories")[0],
-		"red": u.getAll("categories")[1],
-		"blue": u.getAll("categories")[2],
-		"green": u.getAll("categories")[3]
+		"yellow": u.get("yellowcat"),
+		"red": u.get("redcat"),
+		"blue": u.get("bluecat"),
+		"green": u.get("greencat")
 	};
 	var info = document.querySelector(".info")
 	info.innerHTML += '<div class="yellow">'+ColorToCategory["yellow"] + '</div>'
