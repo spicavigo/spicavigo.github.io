@@ -7,7 +7,15 @@
   <link rel="stylesheet" href="trivial.css" />
   <script>
   	function validateForm() {
-  		return document.forms["newgame"].categories.selectedOptions.length == 4;
+  		if (document.forms["newgame"].categories.selectedOptions.length != 4) {
+  			alert("Select 4 Categories");
+  			return false;
+  		}
+  		if (document.forms["newgame"].player1.value == '') {
+  			alert("Specify the name of Player 1");
+  			return false;
+  		}
+  		return true;
   	}
   	
   	function init() {
@@ -16,7 +24,6 @@
   			document.querySelector("#categories").innerHTML += '<option value="'+e+'">'+e+'</option>'
   		});
   		document.querySelector("#categories").setAttribute("size", categories.size);
-  		//form.addEventListener('submit', handleSubmit);
   		
   	}
 	window.onload = init;
