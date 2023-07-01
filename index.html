@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>New Game: Trivial Compute</title>
+  <script src="qb.js"></script>
+  <script src="question.js"></script>
+  <link rel="stylesheet" href="trivial.css" />
+  <script>
+  	function validateForm() {
+  		return document.forms["newgame"].categories.selectedOptions.length == 4;
+  	}
+  	
+  	function init() {
+  		var categories = getCategories();
+  		categories.forEach(e => {
+  			document.querySelector("#categories").innerHTML += '<option value="'+e+'">'+e+'</option>'
+  		});
+  		document.querySelector("#categories").setAttribute("size", categories.size);
+  		//form.addEventListener('submit', handleSubmit);
+  		
+  	}
+	window.onload = init;
+	</script>
+	<style>
+		select {
+			display: block;
+			margin-bottom: 10px;
+		}
+		.input {
+			display: block;
+		}
+
+		.input input {
+			margin-bottom: 10px;
+		}
+
+		.game-form {
+			padding: 10px;
+			margin: 10px;
+		}
+
+	</style>
+</head>
+<body>
+	<nav class="nav">
+    <div class="nav__title">Trivial Compute</div>
+    <ul class="nav__list">
+      <li class="nav__item">New Game</li>
+    </ul>
+  </nav>
+  <form class="game-form" name="newgame" action="trivial.html" onsubmit="return validateForm()">
+	<label for="categories">Choose 4 categories:</label>
+	<select name="categories" id="categories" multiple>
+	</select>
+
+	<div class="input">
+		<label for="player1">Player 1:</label>
+		<input type="text" id="player1" name="player1">
+	</div>
+	
+	<div class="input">
+		<label for="player2">Player 2:</label>
+		<input type="text" id="player2" name="player2">
+	</div>
+	<div class="input">
+		<label for="player3">Player 3:</label>
+		<input type="text" id="player3" name="player3">
+	</div>
+	<div class="input">
+		<label for="player4">Player 4:</label>
+		<input type="text" id="player4" name="player4">
+	</div>
+
+	<button id="submit-button" type="submit">Submit</button>
+	</form>
+</body>
+</html>
