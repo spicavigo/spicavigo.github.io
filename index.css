@@ -1,0 +1,90 @@
+details .button {
+    display: inline-block;
+    padding: .5em 1em;
+    border-radius: 5px;
+    font-size: .875rem;
+    background: #10b981;
+    top: 1em;
+    right: 1em;
+    color: #fff;
+    font-weight: 500;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer
+}
+
+details button:hover {
+    background: #0ea271
+}
+
+details button svg {
+    display: inline-block;
+    vertical-align: -15%;
+    margin-right: .25em
+}
+
+
+dialog {
+    background: #ffffff;
+    border-radius: 0.5em;
+    max-width: 90%;
+    pointer-events: none;
+    width: 30em;
+    text-align: left;
+    max-height: 90vh;
+    flex-direction: column;
+    border: 0;
+    border-radius: 20px;
+    border: 0;
+    box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.1);
+    -webkit-animation: fadeIn 1s ease both;
+    animation: fadeIn 1s ease both;
+}
+
+dialog::backdrop {
+    -webkit-animation: fadeIn 1s ease both;
+    animation: fadeIn 1s ease both;
+    background: rgba(255, 255, 255, 0.4);
+    z-index: 2;
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+}
+
+dialog .details-modal-close {
+    align-items: center;
+    color: #111827;
+    display: flex;
+    height: 4.5em;
+    justify-content: center;
+    pointer-events: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 4.5em;
+    cursor: pointer;
+}
+
+dialog .details-modal-close svg {
+    display: block;
+}
+
+dialog .details-modal-title {
+    color: #111827;
+    padding: 1.5em 2em;
+    pointer-events: all;
+    position: relative;
+    width: calc(100% - 4.5em);
+}
+
+dialog .details-modal-title h1 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: normal;
+}
+
+dialog .details-modal-content {
+    border-top: 1px solid #e0e0e0;
+    padding: 2em;
+    pointer-events: all;
+    overflow: auto;
+}

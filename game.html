@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Game: Trivial Compute</title>
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link rel="stylesheet" href="base.css" />
+    <link rel="stylesheet" href="game.css" />
+</head>
+
+<body>
+    <div class="status-text-big">Hello</div>
+    <dialog id="dialog">
+        <div class="tab1">
+            <div class="category"></div>
+            <div id="question-container"></div>
+            <fieldset class="nice-form-group answer"></fieldset>
+            <details>
+                <summary>
+                    <div id="answer-button" class="button">Submit Answer</div>
+                </summary>
+            </details>
+        </div>
+        <div class="tab2">
+            <label for="category-select">Choose a Category</label>
+            <div class="nice-form-group">
+                <select id="category-select">
+                </select>
+                <span class="focus"></span>
+            </div>
+            <details>
+                <summary>
+                    <div id="category-button" class="button">Submit Category</div>
+                </summary>
+            </details>
+        </div>
+
+    </dialog>
+    <nav class="nav">
+        <div class="nav__title">Trivial Compute</div>
+        <ul class="nav__list">
+            <li class="nav__item"><a href="index.html">New Game</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="gameboard">
+            <section class="actions" id="actions">
+                <div class="action">Current Player: <span id="currentPlayer">Player 1</span></div>
+                <button class="roll-button action" role="button" id="roll-button">Roll</button>
+                <div class="action">Roll Value: <span id="roll-value">Waiting...</span></div>
+            </section>
+            <div class="grid" id="board">
+                <!-- Generate the cells -->
+                <div class="cell" data-cell-id="0" data-cell-type="roll-again"><span>Roll Again</span></div>
+                <div class="cell" data-cell-id="1" data-cell-type="yellow"></div>
+                <div class="cell" data-cell-id="2" data-cell-type="blue"></div>
+                <div class="cell" data-cell-id="3" data-cell-type="green"></div>
+                <div class="cell" data-cell-id="4" data-cell-type="red-hq"><span>HQ</span></div>
+                <div class="cell" data-cell-id="5" data-cell-type="yellow"></div>
+                <div class="cell" data-cell-id="6" data-cell-type="blue"></div>
+                <div class="cell" data-cell-id="7" data-cell-type="green"></div>
+                <div class="cell" data-cell-id="8" data-cell-type="roll-again"><span>Roll Again</span></div>
+
+                <div class="cell" data-cell-id="9" data-cell-type="red"></div>
+                <div class="merged-cell" data-cell-id="10" data-cell-type="player1">
+                    <div class="home_title"></div>
+                    <div class="outer">
+                        <div class="inner">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cell" data-cell-id="11" data-cell-type="yellow"></div>
+                <div class="merged-cell" data-cell-id="12" data-cell-type="player2">
+                    <div class="home_title"></div>
+                    <div class="outer">
+                        <div class="inner">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cell" data-cell-id="13" data-cell-type="red"></div>
+
+                <div class="cell" data-cell-id="14" data-cell-type="green"></div>
+                <div class="cell" data-cell-id="15" data-cell-type="blue"></div>
+                <div class="cell" data-cell-id="16" data-cell-type="yellow"></div>
+
+                <div class="cell" data-cell-id="17" data-cell-type="blue"></div>
+                <div class="cell" data-cell-id="18" data-cell-type="green"></div>
+                <div class="cell" data-cell-id="19" data-cell-type="blue"></div>
+
+
+                <div class="cell" data-cell-id="20" data-cell-type="yellow-hq"><span>HQ</span></div>
+                <div class="cell" data-cell-id="21" data-cell-type="blue"></div>
+                <div class="cell" data-cell-id="22" data-cell-type="green"></div>
+                <div class="cell" data-cell-id="23" data-cell-type="red"></div>
+                <div class="cell" data-cell-id="24" data-cell-type="center"><span>Trivial Compute</span></div>
+                <div class="cell" data-cell-id="25" data-cell-type="blue"></div>
+                <div class="cell" data-cell-id="26" data-cell-type="yellow"></div>
+                <div class="cell" data-cell-id="27" data-cell-type="red"></div>
+                <div class="cell" data-cell-id="28" data-cell-type="green-hq"><span>HQ</span></div>
+
+                <div class="cell" data-cell-id="29" data-cell-type="red"></div>
+                <div class="merged-cell" data-cell-id="30" data-cell-type="player3">
+                    <div class="home_title"></div>
+                    <div class="outer">
+                        <div class="inner">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cell" data-cell-id="31" data-cell-type="yellow"></div>
+                <div class="merged-cell" data-cell-id="32" data-cell-type="player4">
+                    <div class="home_title"></div>
+                    <div class="outer">
+                        <div class="inner">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cell" data-cell-id="33" data-cell-type="red"></div>
+
+                <div class="cell" data-cell-id="34" data-cell-type="green"></div>
+                <div class="cell" data-cell-id="35" data-cell-type="red"></div>
+                <div class="cell" data-cell-id="36" data-cell-type="yellow"></div>
+
+                <div class="cell" data-cell-id="37" data-cell-type="blue"></div>
+                <div class="cell" data-cell-id="38" data-cell-type="green"></div>
+                <div class="cell" data-cell-id="39" data-cell-type="blue"></div>
+
+                <div class="cell" data-cell-id="40" data-cell-type="roll-again"><span>Roll Again</span></div>
+                <div class="cell" data-cell-id="41" data-cell-type="yellow"></div>
+                <div class="cell" data-cell-id="42" data-cell-type="red"></div>
+                <div class="cell" data-cell-id="43" data-cell-type="green"></div>
+                <div class="cell" data-cell-id="44" data-cell-type="blue-hq"><span>HQ</span></div>
+                <div class="cell" data-cell-id="45" data-cell-type="yellow"></div>
+                <div class="cell" data-cell-id="46" data-cell-type="red"></div>
+                <div class="cell" data-cell-id="47" data-cell-type="green"></div>
+                <div class="cell" data-cell-id="48" data-cell-type="roll-again"><span>Roll Again</span></div>
+            </div>
+        </div>
+        <section class="info">
+            <div class="game-cat">
+            </div>
+            <!--div class="game-players">
+            </div-->
+        </section>
+    </div>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script>
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyD4CULXX8KCQcI9zjsPMXvmsOj_G42kCf0",
+            authDomain: "mrvl-trivialcompute.firebaseapp.com",
+            databaseURL: "https://mrvl-trivialcompute-default-rtdb.firebaseio.com",
+            projectId: "mrvl-trivialcompute",
+            storageBucket: "mrvl-trivialcompute.appspot.com",
+            messagingSenderId: "217741458524",
+            appId: "1:217741458524:web:7fc22512ca79bed02ffa99"
+        };
+
+        // Initialize Firebase
+        var app = firebase.initializeApp(firebaseConfig);
+        var database = firebase.database(app);
+
+    </script>
+    <script src="common.js"></script>
+    <script src="board.js"></script>
+    <script src="questionmanager.js"></script>
+    <script src="playersmanager.js"></script>
+    <script src="gamemanager.js"></script>
+    <script src="maingame.js"></script>
+
+</body>
+
+</html>

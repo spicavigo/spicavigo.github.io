@@ -1,54 +1,4 @@
-var CENTER_CELL_ID = 24;
-var AdjList = {
-	0: [1, 9],
-	1: [0, 2],
-	2: [1, 3],
-	3: [2, 4],
-	4: [3, 5, 11],
-	5: [4, 6],
-	6: [5, 7],
-	7: [6, 8],
-	8: [7, 13],
-	9: [0, 14],
-	11: [4, 15],
-	13: [8, 16],
-	14: [9, 17],
-	15: [11, 18],
-	16: [13, 19],
-	17: [14, 20],
-	18: [15, 24],
-	19: [16, 28],
-	20: [17, 21, 29],
-	21: [20, 22],
-	22: [21, 23],
-	23: [22, 24],
-	24: [18, 23, 25, 31],
-	25: [24, 26],
-	26: [25, 27],
-	27: [26, 28],
-	28: [19, 27, 33],
-	29: [20, 34],
-	31: [24, 35],
-	33: [28, 36],
-	34: [29, 37],
-	35: [31, 38],
-	36: [33, 39],
-	37: [34, 40],
-	38: [35, 44],
-	39: [36, 48],
-	40: [37, 41],
-	41: [40, 42],
-	42: [41, 43],
-	43: [42, 44],
-	44: [38, 43, 45],
-	45: [44, 46],
-	46: [45, 47],
-	47: [46, 48],
-	48: [39, 47]
-}
-var ROLL_AGAIN_CELLS = [0, 8, 40, 48];
-var HQ_CELLS = [4, 20, 28, 44];
-var PLAYER_HOME = [10, 12, 30, 32];
+
 var CurrentPlayer = 0;
 var PlayerPositions = [CENTER_CELL_ID, CENTER_CELL_ID, CENTER_CELL_ID, CENTER_CELL_ID];
 
@@ -191,7 +141,7 @@ function doRoll() {
 	// Disable roll button
 	document.getElementById("roll-button").style.visibility = "hidden";
 	// Display Roll Value
-  	var value = Math.floor(Math.random() * 5) + 1;
+  	var value = Math.floor(Math.random() * 6  + 1)
   	document.getElementById("roll-value").innerHTML = value;
 
   	var circle = "<div class='circle' data-player-id='" + CurrentPlayer + "'></div>";
@@ -284,22 +234,6 @@ function initBoard() {
 
 window.onload = initBoard
 
-function getDestinations(curr, prev, moves) {
-	if (moves == 0) {
-		return new Set([curr]);
-	}
-	var ret = new Set([]);
-	for (var i = 0; i < AdjList[curr].length; i++) {
-		if (AdjList[curr][i] == prev) {
-			continue;
-		}
-		var dests = getDestinations(AdjList[curr][i], curr, moves-1);
-		dests.forEach(val => { ret.add(val); })
-		
-	}
-	return ret;
-
-}
 
 
 

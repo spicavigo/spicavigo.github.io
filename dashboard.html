@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Dashboard: Trivial Compute</title>
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+  <link href='https://unpkg.com/css.gg@2.0.0/icons/css/check.css' rel='stylesheet'>
+  <link href='https://unpkg.com/css.gg@2.0.0/icons/css/trash.css' rel='stylesheet'>
+  <link rel="stylesheet" href="base.css" />
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+
+<body>
+  <nav class="nav">
+    <div class="nav__title">Trivial Compute</div>
+  </nav>
+  <div class="demo-page">
+    <div class="demo-page-navigation">
+      <nav>
+        <ul>
+          <li>
+            <a href="#categories">Categories</a>
+          </li>
+          <li>
+            <a href="#questions">Questions</a>
+          </li>
+          <li>
+            <a href="#addquestion">Add Question</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <main class="demo-page-content">
+      <section id="categories">
+        <h1>Categories</h1>
+        <ul>
+          <li class="catform">
+            <div class="nice-form-group">
+              <input type="text" id="newcat" name="newcat" placeholder="Add another category (Enter to submit)">
+            </div>
+          </li>
+        </ul>
+      </section>
+      <section id="questions">
+        <h1>Questions</h1>
+      </section>
+
+      <section id="addquestion">
+        <h1>Create New Question</h1>
+        <div id="editor"></div>
+        <div class="nice-form-group">
+          <label>Choose Category</label>
+          <select id="cat-options">
+            <option disabled selected>Please select a Category</option>
+          </select>
+        </div>
+        <ul>
+          <li class="optionform">
+            <div class="nice-form-group">
+              <input type="text" id="newoption" name="newoption" placeholder="Add Answer Options (Enter to add)">
+            </div>
+          </li>
+        </ul>
+        <div class="nice-form-group">
+          <label>Correct Option</label>
+          <select id="options">
+            <option disabled selected>Please select an answer</option>
+          </select>
+        </div>
+        <details>
+          <summary>
+            <div id="reset-button" class="button blue">Reset Question</div>
+            <div id="submit-button" class="button">Add Question</div>
+            <div id="error"></div>
+            <span class="loader"></span>
+
+          </summary>
+        </details>
+
+      </section>
+    </main>
+  </div>
+
+  <dialog id="errorDialog">
+    <div class="details-modal-close">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M13.7071 1.70711C14.0976 1.31658 14.0976 0.683417 13.7071 0.292893C13.3166 -0.0976311 12.6834 -0.0976311 12.2929 0.292893L7 5.58579L1.70711 0.292893C1.31658 -0.0976311 0.683417 -0.0976311 0.292893 0.292893C-0.0976311 0.683417 -0.0976311 1.31658 0.292893 1.70711L5.58579 7L0.292893 12.2929C-0.0976311 12.6834 -0.0976311 13.3166 0.292893 13.7071C0.683417 14.0976 1.31658 14.0976 1.70711 13.7071L7 8.41421L12.2929 13.7071C12.6834 14.0976 13.3166 14.0976 13.7071 13.7071C14.0976 13.3166 14.0976 12.6834 13.7071 12.2929L8.41421 7L13.7071 1.70711Z"
+          fill="black" />
+      </svg>
+    </div>
+    <div class="details-modal-title">
+      <h1>Try Again</h1>
+    </div>
+    <div class="details-modal-content">
+      <p>
+      </p>
+    </div>
+  </dialog>
+
+  <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script>
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyD4CULXX8KCQcI9zjsPMXvmsOj_G42kCf0",
+      authDomain: "mrvl-trivialcompute.firebaseapp.com",
+      databaseURL: "https://mrvl-trivialcompute-default-rtdb.firebaseio.com",
+      projectId: "mrvl-trivialcompute",
+      storageBucket: "mrvl-trivialcompute.appspot.com",
+      messagingSenderId: "217741458524",
+      appId: "1:217741458524:web:7fc22512ca79bed02ffa99"
+    };
+
+    // Initialize Firebase
+    var app = firebase.initializeApp(firebaseConfig);
+    var database = firebase.database(app);
+
+    var quill = new Quill('#editor', {
+      modules: {
+        toolbar: [
+          [{ 'font': [] }],
+          [{ header: [1, 2, 3, 4, 5, 6, false] }],
+          ['bold', 'italic', 'underline', 'strike'],
+          [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+          [{ 'indent': '-1' }, { 'indent': '+1' }],
+          [{ 'script': 'sub' }, { 'script': 'super' }],
+          ['link', 'image', 'video'],
+          [{ 'color': [] }, { 'background': [] }],
+
+          [{ 'align': [] }]]
+      },
+      placeholder: 'Add Question Text...',
+      theme: 'snow'
+    });
+  </script>
+  <script src="qb.js"></script>
+  <script src="common.js"></script>
+  <script src="questionmanager.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+
+</html>

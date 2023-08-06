@@ -1,136 +1,117 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>New Game: Trivial Compute</title>
-  <script src="qb.js"></script>
-  <script src="question.js"></script>
-  <link rel="stylesheet" href="trivial.css" />
-  <script>
-  	function validateForm() {
-  		var cats = new Set([
-  			document.forms["newgame"].yellowcat.value, 
-  			document.forms["newgame"].redcat.value,
-  			document.forms["newgame"].bluecat.value,
-  			document.forms["newgame"].greencat.value])
-  		if (cats.size != 4) {
-  			alert("Select 4 different categories");
-  			return false;
-  		}
-  		if (document.forms["newgame"].player1.value == '') {
-  			alert("Specify the name of Player 1");
-  			return false;
-  		}
-  		return true;
-  	}
-  	
-  	function init() {
-  		var categories = getCategories();
-  		categories.forEach(e => {
-  			document.querySelector("#yellowcat").innerHTML += '<option value="'+e+'">'+e+'</option>'
-  			document.querySelector("#redcat").innerHTML += '<option value="'+e+'">'+e+'</option>'
-  			document.querySelector("#bluecat").innerHTML += '<option value="'+e+'">'+e+'</option>'
-  			document.querySelector("#greencat").innerHTML += '<option value="'+e+'">'+e+'</option>'
-  		});
-  		
-  	}
-	window.onload = init;
-	</script>
-	<style>
-		body {
-			text-align: center;
-			letter-spacing: 1px;
-		}
-		form {
-		    display: inline-block;
-		    text-align: left;
-		}
-		.title {
-		    text-align: center;
-		    color: #ff6464;
-		    font-weight: bold;
-		    padding: 40px;
-		    font-size: 24px;
-		}
-		select {
-			margin-bottom: 10px;
-			font-size: 16px;
-		}
-		.input {
-			display: block;
-		}
+	<title>New Game: Trivial Compute</title>
+	<link rel="stylesheet" href="base.css" />
+	<link rel="stylesheet" href="index.css" />
 
-		.input input {
-			margin-bottom: 10px;
-		}
-
-		.game-form {
-			padding: 50px;
-		    margin: 40px;
-		    border: 4px solid #ff6464;
-		    border-radius: 8px;
-		}
-		label {
-		    width: 10em;
-		    display: inline-block;
-		}
-		button {
-			display:block;
-			margin-top: 10px;
-			margin-left: auto;
-			margin-right: auto;
-			padding: 20px;
-		}
-
-	</style>
 </head>
+
 <body>
 	<nav class="nav">
-    <div class="nav__title">Trivial Compute</div>
-    <ul class="nav__list">
-      <li class="nav__item"><a href="index.html">New Game</a></li>
-    </ul>
-  </nav>
-  <form class="game-form" name="newgame" action="trivial.html" onsubmit="return validateForm()">
-  	<div class="title"> Start New Game</div>
-  	<div class="input">
-		<label for="yellowcat">Yellow category:</label>
-		<select name="yellowcat" id="yellowcat"></select>
+		<div class="nav__title">Trivial Compute</div>
+	</nav>
+	<div class="demo-page">
+		<main class="demo-page-content">
+			<section>
+				<form class="game-form" name="newgame" action="trivial.html" onsubmit="return validateForm()">
+					<div class="title"> Start New Game</div>
+					<div class="nice-form-group">
+						<label for="yellowcat">Yellow category:</label>
+						<select name="yellowcat" id="yellowcat"></select>
+					</div>
+
+					<div class="nice-form-group">
+						<label for="redcat">Red category:</label>
+						<select name="redcat" id="redcat"></select>
+					</div>
+
+					<div class="nice-form-group">
+						<label for="bluecat">Blue category:</label>
+						<select name="bluecat" id="bluecat"></select>
+					</div>
+
+					<div class="nice-form-group">
+						<label for="greencat">Green category:</label>
+						<select name="greencat" id="greencat"></select>
+					</div>
+
+					<div class="nice-form-group">
+						<label for="player1">Player 1:</label>
+						<input type="text" id="player1" name="player1" value="player1">
+					</div>
+
+					<div class="nice-form-group">
+						<label for="player2">Player 2:</label>
+						<input type="text" id="player2" name="player2" value="player2">
+					</div>
+					<div class="nice-form-group">
+						<label for="player3">Player 3:</label>
+						<input type="text" id="player3" name="player3" value="player3">
+					</div>
+					<div class="nice-form-group">
+						<label for="player4">Player 4:</label>
+						<input type="text" id="player4" name="player4" value="player4">
+					</div>
+
+					<details>
+						<summary>
+							<div id="submit-button" class="button">Start Game</div>
+						</summary>
+					</details>
+
+				</form>
+			</section>
+		</main>
 	</div>
 
-	<div class="input">
-		<label for="redcat">Red category:</label>
-		<select name="redcat" id="redcat"></select>
-	</div>
+	<dialog id="errorDialog">
+		<div class="details-modal-close">
+			<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+				<path fill-rule="evenodd" clip-rule="evenodd"
+					d="M13.7071 1.70711C14.0976 1.31658 14.0976 0.683417 13.7071 0.292893C13.3166 -0.0976311 12.6834 -0.0976311 12.2929 0.292893L7 5.58579L1.70711 0.292893C1.31658 -0.0976311 0.683417 -0.0976311 0.292893 0.292893C-0.0976311 0.683417 -0.0976311 1.31658 0.292893 1.70711L5.58579 7L0.292893 12.2929C-0.0976311 12.6834 -0.0976311 13.3166 0.292893 13.7071C0.683417 14.0976 1.31658 14.0976 1.70711 13.7071L7 8.41421L12.2929 13.7071C12.6834 14.0976 13.3166 14.0976 13.7071 13.7071C14.0976 13.3166 14.0976 12.6834 13.7071 12.2929L8.41421 7L13.7071 1.70711Z"
+					fill="black" />
+			</svg>
+		</div>
+		<div class="details-modal-title">
+			<h1>Try Again</h1>
+		</div>
+		<div class="details-modal-content">
+			<p>
+				You can click the X in the corner or click the overlay to close this modal.
+				Something like this could be useful as a nice way to show additional information,
+				but that's about as far as I would take it. It's just a nice way of styling the details element.
+			</p>
+		</div>
+	</dialog>
 
-	<div class="input">
-		<label for="bluecat">Blue category:</label>
-		<select name="bluecat" id="bluecat"></select>
-	</div>
+	<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+	<script>
 
-	<div class="input">
-		<label for="greencat">Green category:</label>
-		<select name="greencat" id="greencat"></select>
-	</div>
+		// Your web app's Firebase configuration
+		const firebaseConfig = {
+			apiKey: "AIzaSyD4CULXX8KCQcI9zjsPMXvmsOj_G42kCf0",
+			authDomain: "mrvl-trivialcompute.firebaseapp.com",
+			databaseURL: "https://mrvl-trivialcompute-default-rtdb.firebaseio.com",
+			projectId: "mrvl-trivialcompute",
+			storageBucket: "mrvl-trivialcompute.appspot.com",
+			messagingSenderId: "217741458524",
+			appId: "1:217741458524:web:7fc22512ca79bed02ffa99"
+		};
 
-	<div class="input">
-		<label for="player1">Player 1:</label>
-		<input type="text" id="player1" name="player1">
-	</div>
-	
-	<div class="input">
-		<label for="player2">Player 2:</label>
-		<input type="text" id="player2" name="player2">
-	</div>
-	<div class="input">
-		<label for="player3">Player 3:</label>
-		<input type="text" id="player3" name="player3">
-	</div>
-	<div class="input">
-		<label for="player4">Player 4:</label>
-		<input type="text" id="player4" name="player4">
-	</div>
+		// Initialize Firebase
+		var app = firebase.initializeApp(firebaseConfig);
+		var database = firebase.database(app);
 
-	<button id="submit-button" type="submit">Start Game</button>
-	</form>
+	</script>
+	<script src="common.js"></script>
+	<script src="board.js"></script>
+	<script src="gamemanager.js"></script>
+	<script src="playersmanager.js"></script>
+	<script src="questionmanager.js"></script>
+	<script src="startgame.js"></script>
 </body>
+
 </html>

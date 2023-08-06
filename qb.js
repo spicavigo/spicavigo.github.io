@@ -1,975 +1,842 @@
 var QuestionBank = [
   {
-    "question": "What is the value of 7 multiplied by 9?",
-    "answer": "63",
-    "category": "Math",
-    "difficulty": "1",
-    "id": "0"
+    "question": "What is 12 multiplied by 12?",
+    "options": ["144", "120", "132", "128"],
+    "answer": "144",
+    "category": "Math"
   },
   {
-    "question": "Solve the equation: 4 + x = 11.",
-    "answer": "x = 7",
-    "category": "Math",
-    "difficulty": "1",
-    "id": "1"
+    "question": "If a rectangle's length is 8 and width is 6, what is its area?",
+    "options": ["48", "52", "44", "14"],
+    "answer": "48",
+    "category": "Math"
   },
   {
-    "question": "Calculate the area of a square with a side length of 6 units.",
-    "answer": "36 square units",
-    "category": "Math",
-    "difficulty": "1",
-    "id": "2"
+    "question": "What is 72 divided by 9?",
+    "options": ["8", "9", "7", "6"],
+    "answer": "8",
+    "category": "Math"
   },
   {
-    "question": "Add the fractions 1/4 and 2/4.",
-    "answer": "3/4",
-    "category": "Math",
-    "difficulty": "1",
-    "id": "3"
-  },
-  {
-    "question": "Multiply 3.5 by 4.",
-    "answer": "14",
-    "category": "Math",
-    "difficulty": "1",
-    "id": "4"
-  },
-  {
-    "question": "Solve the equation: 5(x + 2) = 35.",
-    "answer": "x = 5",
-    "category": "Math",
-    "difficulty": "2",
-    "id": "5"
-  },
-  {
-    "question": "Calculate the perimeter of a rectangle with length 12 units and width 5 units.",
-    "answer": "34 units",
-    "category": "Math",
-    "difficulty": "2",
-    "id": "6"
-  },
-  {
-    "question": "Divide 56 by 8.",
+    "question": "What is the next prime number after 5?",
+    "options": ["6", "7", "8", "9"],
     "answer": "7",
-    "category": "Math",
-    "difficulty": "2",
-    "id": "7"
+    "category": "Math"
   },
   {
-    "question": "Find the missing number: 9 + __ = 16.",
-    "answer": "7",
-    "category": "Math",
-    "difficulty": "2",
-    "id": "8"
+    "question": "What is the value of the Roman numeral XV?",
+    "options": ["10", "5", "20", "15"],
+    "answer": "15",
+    "category": "Math"
   },
   {
-    "question": "Simplify the expression: 2 \u00d7 (4 + 3) - 5.",
-    "answer": "9",
-    "category": "Math",
-    "difficulty": "2",
-    "id": "9"
+    "question": "Solve for x in the equation: 2x = 16",
+    "options": ["8", "6", "4", "10"],
+    "answer": "8",
+    "category": "Math"
   },
   {
-    "question": "Calculate the square root of 81.",
-    "answer": "9",
-    "category": "Math",
-    "difficulty": "2",
-    "id": "10"
+    "question": "What is the sum of the angles of a triangle?",
+    "options": ["90 degrees", "180 degrees", "270 degrees", "360 degrees"],
+    "answer": "180 degrees",
+    "category": "Math"
   },
   {
-    "question": "Subtract 3/5 from 1.",
-    "answer": "2/5",
-    "category": "Math",
-    "difficulty": "3",
-    "id": "11"
+    "question": "What is the smallest two-digit prime number?",
+    "options": ["10", "11", "12", "13"],
+    "answer": "11",
+    "category": "Math"
   },
   {
-    "question": "Solve the equation: 2(x - 4) = 10.",
-    "answer": "x = 9",
-    "category": "Math",
-    "difficulty": "3",
-    "id": "12"
+    "question": "Which number is an even number?",
+    "options": ["21", "35", "44", "97"],
+    "answer": "44",
+    "category": "Math"
   },
   {
-    "question": "Multiply 0.25 by 8.",
-    "answer": "2",
-    "category": "Math",
-    "difficulty": "3",
-    "id": "13"
+    "question": "What is the result of 50 subtracted from 123?",
+    "options": ["73", "75", "70", "77"],
+    "answer": "73",
+    "category": "Math"
   },
   {
-    "question": "Calculate the volume of a rectangular prism with length 7 units, width 4 units, and height 3 units.",
-    "answer": "84 cubic units",
-    "category": "Math",
-    "difficulty": "3",
-    "id": "14"
+    "question": "A pizza is divided into 8 equal pieces. If you eat 2 pieces, what fraction of the pizza did you eat?",
+    "options": ["1/4", "1/3", "1/2", "1/8"],
+    "answer": "1/4",
+    "category": "Math"
   },
   {
-    "question": "Solve the equation: 3x + 2 = 17.",
-    "answer": "x = 5",
-    "category": "Math",
-    "difficulty": "3",
-    "id": "15"
+    "question": "What is 1/2 of 100?",
+    "options": ["50", "100", "200", "150"],
+    "answer": "50",
+    "category": "Math"
   },
   {
-    "question": "Add the fractions 1/3 and 2/5.",
-    "answer": "11/15",
-    "category": "Math",
-    "difficulty": "3",
-    "id": "16"
+    "question": "Which of the following is an odd number?",
+    "options": ["22", "36", "15", "80"],
+    "answer": "15",
+    "category": "Math"
   },
   {
-    "question": "Calculate the area of a circle with a radius of 5 units. (Use \u03c0 = 3.14)",
-    "answer": "78.5 square units",
-    "category": "Math",
-    "difficulty": "4",
-    "id": "17"
+    "question": "What is 3 cubed (3^3)?",
+    "options": ["27", "9", "6", "12"],
+    "answer": "27",
+    "category": "Math"
   },
   {
-    "question": "Solve the equation: 3(2x - 4) = 30.",
-    "answer": "x = 7",
-    "category": "Math",
-    "difficulty": "4",
-    "id": "18"
+    "question": "What is the decimal equivalent of 3/4?",
+    "options": ["0.75", "0.25", "0.50", "1.00"],
+    "answer": "0.75",
+    "category": "Math"
   },
   {
-    "question": "Divide 125 by 25.",
-    "answer": "5",
-    "category": "Math",
-    "difficulty": "4",
-    "id": "19"
+    "question": "Solve the equation: 5x = 15",
+    "options": ["3", "4", "2", "5"],
+    "answer": "3",
+    "category": "Math"
   },
   {
-    "question": "Who was the first President of the United States?",
-    "answer": "George Washington",
-    "category": "History",
-    "difficulty": "1",
-    "id": "20"
+    "question": "How many sides does a hexagon have?",
+    "options": ["5", "6", "7", "8"],
+    "answer": "6",
+    "category": "Math"
   },
   {
-    "question": "When did Christopher Columbus discover America?",
-    "answer": "1492",
-    "category": "History",
-    "difficulty": "1",
-    "id": "21"
+    "question": "What is 1000 divided by 10?",
+    "options": ["100", "10", "1000", "110"],
+    "answer": "100",
+    "category": "Math"
   },
   {
-    "question": "Who wrote the Declaration of Independence?",
-    "answer": "Thomas Jefferson",
-    "category": "History",
-    "difficulty": "1",
-    "id": "22"
+    "question": "What is the result of 13 + 9?",
+    "options": ["22", "21", "23", "24"],
+    "answer": "22",
+    "category": "Math"
   },
   {
-    "question": "What was the name of the ancient civilization that built the pyramids?",
-    "answer": "Egyptians",
-    "category": "History",
-    "difficulty": "1",
-    "id": "23"
+    "question": "What is the square of 9?",
+    "options": ["18", "81", "27", "36"],
+    "answer": "81",
+    "category": "Math"
   },
   {
-    "question": "When did World War II begin and end?",
-    "answer": "1939-1945",
-    "category": "History",
-    "difficulty": "2",
-    "id": "24"
+    "question": "Who wrote the book 'Harry Potter'?",
+    "options": ["J.K. Rowling", "Charles Dickens", "R.L. Stine", "Roald Dahl"],
+    "answer": "J.K. Rowling",
+    "category": "Arts & Literature"
   },
   {
-    "question": "Who was the leader of the Civil Rights Movement in the United States?",
-    "answer": "Martin Luther King Jr.",
-    "category": "History",
-    "difficulty": "2",
-    "id": "25"
+    "question": "Which is a famous painting by Vincent Van Gogh?",
+    "options": ["Starry Night", "The Last Supper", "Mona Lisa", "The Scream"],
+    "answer": "Starry Night",
+    "category": "Arts & Literature"
   },
   {
-    "question": "Which country was the first to successfully launch a satellite into space?",
-    "answer": "Soviet Union (Russia)",
-    "category": "History",
-    "difficulty": "2",
-    "id": "26"
+    "question": "Who is the author of 'The Jungle Book'?",
+    "options": ["Rudyard Kipling", "Mark Twain", "C.S. Lewis", "Lewis Carroll"],
+    "answer": "Rudyard Kipling",
+    "category": "Arts & Literature"
   },
   {
-    "question": "Who is known for painting the Mona Lisa?",
+    "question": "Who wrote 'The Cat in the Hat'?",
+    "options": ["Dr. Seuss", "Roald Dahl", "A.A. Milne", "Beatrix Potter"],
+    "answer": "Dr. Seuss",
+    "category": "Arts & Literature"
+  },
+  {
+    "question": "Who created the character 'Sherlock Holmes'?",
+    "options": ["Arthur Conan Doyle", "Agatha Christie", "John Grisham", "Ian Fleming"],
+    "answer": "Arthur Conan Doyle",
+    "category": "Arts & Literature"
+  },
+  {
+    "question": "What type of poem has 14 lines?",
+    "options": ["Sonnet", "Haiku", "Limerick", "Ode"],
+    "answer": "Sonnet",
+    "category": "Arts & Literature"
+  },
+  {
+    "question": "Who painted 'The Starry Night'?",
+    "options": ["Pablo Picasso", "Vincent Van Gogh", "Leonardo da Vinci", "Claude Monet"],
+    "answer": "Vincent Van Gogh",
+    "category": "Arts & Literature"
+  },
+  {
+    "question": "Who is the author of 'Charlie and the Chocolate Factory'?",
+    "options": ["Roald Dahl", "J.K. Rowling", "E.B. White", "Beatrix Potter"],
+    "answer": "Roald Dahl",
+    "category": "Arts & Literature"
+  },
+  {
+    "question": "What instrument has 88 keys?",
+    "options": ["Guitar", "Violin", "Drums", "Piano"],
+    "answer": "Piano",
+    "category": "Arts & Literature"
+  },
+  {
+    "question": "Who wrote 'Treasure Island'?",
+    "options": ["Robert Louis Stevenson", "Mark Twain", "Herman Melville", "Ernest Hemingway"],
+    "answer": "Robert Louis Stevenson",
+    "category": "Arts & Literature"
+  },
+  {
+    "question": "Who painted 'The Scream'?",
+    "options": ["Edvard Munch", "Pablo Picasso", "Vincent Van Gogh", "Claude Monet"],
+    "answer": "Edvard Munch",
+    "category": "Arts & Literature"
+  },
+  {
+    "question": "Who is the author of 'Alice's Adventures in Wonderland'?",
+    "options": ["Lewis Carroll", "J.M. Barrie", "C.S. Lewis", "A.A. Milne"],
+    "answer": "Lewis Carroll",
+    "category": "Arts & Literature"
+  },
+  {
+    "question": "What type of word is used to describe a noun?",
+    "options": ["Adjective", "Verb", "Adverb", "Pronoun"],
+    "answer": "Adjective",
+    "category": "Arts & Literature"
+  },
+  {
+    "question": "Who created the character of 'James Bond'?",
+    "options": ["Ian Fleming", "Arthur Conan Doyle", "Agatha Christie", "John Grisham"],
+    "answer": "Ian Fleming",
+    "category": "Arts & Literature"
+  },
+  {
+    "question": "Who is the author of 'The Chronicles of Narnia'?",
+    "options": ["C.S. Lewis", "J.R.R. Tolkien", "J.K. Rowling", "Roald Dahl"],
+    "answer": "C.S. Lewis",
+    "category": "Arts & Literature"
+  },
+  {
+    "question": "Who painted the 'Mona Lisa'?",
+    "options": ["Leonardo da Vinci", "Vincent Van Gogh", "Pablo Picasso", "Claude Monet"],
     "answer": "Leonardo da Vinci",
-    "category": "History",
-    "difficulty": "2",
-    "id": "27"
+    "category": "Arts & Literature"
   },
   {
-    "question": "What was the significance of the Magna Carta?",
-    "answer": "It established the principle that the king is not above the law.",
-    "category": "History",
-    "difficulty": "2",
-    "id": "28"
+    "question": "Who is the author of 'Matilda'?",
+    "options": ["Roald Dahl", "J.K. Rowling", "E.B. White", "Beatrix Potter"],
+    "answer": "Roald Dahl",
+    "category": "Arts & Literature"
   },
   {
-    "question": "Who was the first female Prime Minister of the United Kingdom?",
-    "answer": "Margaret Thatcher",
-    "category": "History",
-    "difficulty": "3",
-    "id": "29"
+    "question": "What type of story is designed to be scary?",
+    "options": ["Comedy", "Drama", "Horror", "Fairy Tale"],
+    "answer": "Horror",
+    "category": "Arts & Literature"
   },
   {
-    "question": "When did the American Revolutionary War take place?",
-    "answer": "1775-1783",
-    "category": "History",
-    "difficulty": "3",
-    "id": "30"
+    "question": "Who wrote 'Moby Dick'?",
+    "options": ["Herman Melville", "Mark Twain", "Robert Louis Stevenson", "Ernest Hemingway"],
+    "answer": "Herman Melville",
+    "category": "Arts & Literature"
   },
   {
-    "question": "Who was the leader of the Soviet Union during World War II?",
-    "answer": "Joseph Stalin",
-    "category": "History",
-    "difficulty": "3",
-    "id": "31"
+    "question": "Who is the author of 'The Hobbit'?",
+    "options": ["J.R.R. Tolkien", "C.S. Lewis", "J.K. Rowling", "Roald Dahl"],
+    "answer": "J.R.R. Tolkien",
+    "category": "Arts & Literature"
   },
   {
-    "question": "What was the name of the ship that brought the Pilgrims to America?",
-    "answer": "Mayflower",
-    "category": "History",
-    "difficulty": "3",
-    "id": "32"
+    "question": "Which sport is played with a ball and a bat?",
+    "options": ["Soccer", "Cricket", "Swimming", "Tennis"],
+    "answer": "Cricket",
+    "category": "Sports & Leisure"
   },
   {
-    "question": "Who is credited with the invention of the printing press?",
-    "answer": "Johannes Gutenberg",
-    "category": "History",
-    "difficulty": "3",
-    "id": "33"
+    "question": "In which sport do players aim to get a small ball into a hole?",
+    "options": ["Bowling", "Baseball", "Golf", "Basketball"],
+    "answer": "Golf",
+    "category": "Sports & Leisure"
   },
   {
-    "question": "When was the Industrial Revolution?",
-    "answer": "18th and 19th centuries",
-    "category": "History",
-    "difficulty": "4",
-    "id": "34"
+    "question": "What is the highest award in the Olympics?",
+    "options": ["Bronze Medal", "Silver Medal", "Gold Medal", "Diamond Medal"],
+    "answer": "Gold Medal",
+    "category": "Sports & Leisure"
   },
   {
-    "question": "What was the name of the French military and political leader who rose to prominence during the French Revolution?",
-    "answer": "Napoleon Bonaparte",
-    "category": "History",
-    "difficulty": "4",
-    "id": "35"
+    "question": "In which sport might you use a shuttlecock?",
+    "options": ["Tennis", "Soccer", "Badminton", "Cricket"],
+    "answer": "Badminton",
+    "category": "Sports & Leisure"
   },
   {
-    "question": "Who wrote the play Romeo and Juliet?",
-    "answer": "William Shakespeare",
-    "category": "History",
-    "difficulty": "4",
-    "id": "36"
+    "question": "What sport does Michael Jordan play?",
+    "options": ["Basketball", "Football", "Baseball", "Soccer"],
+    "answer": "Basketball",
+    "category": "Sports & Leisure"
   },
   {
-    "question": "When did the Berlin Wall fall?",
-    "answer": "1989",
-    "category": "History",
-    "difficulty": "4",
-    "id": "37"
+    "question": "Which sport uses a 'puck'?",
+    "options": ["Basketball", "Hockey", "Tennis", "Golf"],
+    "answer": "Hockey",
+    "category": "Sports & Leisure"
   },
   {
-    "question": "Who was the first person to walk on the moon?",
-    "answer": "Neil Armstrong",
-    "category": "History",
-    "difficulty": "4",
-    "id": "38"
+    "question": "What sport is known as the 'beautiful game'?",
+    "options": ["Cricket", "Soccer", "Basketball", "Tennis"],
+    "answer": "Soccer",
+    "category": "Sports & Leisure"
   },
   {
-    "question": "What was the name of the ship that sank in 1912 after hitting an iceberg?",
-    "answer": "Titanic",
-    "category": "History",
-    "difficulty": "4",
-    "id": "39"
+    "question": "In which sport might you perform a slam dunk?",
+    "options": ["Tennis", "Volleyball", "Basketball", "Soccer"],
+    "answer": "Basketball",
+    "category": "Sports & Leisure"
   },
   {
-    "question": "What is the process of plants making food called?",
-    "answer": "Photosynthesis",
-    "category": "Science",
-    "difficulty": "1",
-    "id": "40"
+    "question": "What sport does Lionel Messi play?",
+    "options": ["Basketball", "Football", "Baseball", "Soccer"],
+    "answer": "Soccer",
+    "category": "Sports & Leisure"
   },
   {
-    "question": "What are the three states of matter?",
-    "answer": "Solid, liquid, and gas",
-    "category": "Science",
-    "difficulty": "1",
-    "id": "41"
+    "question": "What is the maximum number of players allowed on a soccer team?",
+    "options": ["10", "11", "12", "13"],
+    "answer": "11",
+    "category": "Sports & Leisure"
   },
   {
-    "question": "What is the process of water changing into vapor called?",
-    "answer": "Evaporation",
-    "category": "Science",
-    "difficulty": "1",
-    "id": "42"
+    "question": "Which sport involves treading water and has a ball?",
+    "options": ["Swimming", "Water Polo", "Diving", "Canoeing"],
+    "answer": "Water Polo",
+    "category": "Sports & Leisure"
   },
   {
-    "question": "Which animal lays eggs: a bird or a mammal?",
-    "answer": "Bird",
-    "category": "Science",
-    "difficulty": "1",
-    "id": "43"
+    "question": "What do you call a series of three strikes in bowling?",
+    "options": ["Strikeout", "Turkey", "Spare", "Double"],
+    "answer": "Turkey",
+    "category": "Sports & Leisure"
   },
   {
-    "question": "What is the function of the heart in the human body?",
-    "answer": "Pumping blood",
-    "category": "Science",
-    "difficulty": "2",
-    "id": "44"
+    "question": "In what sport do you serve and volley?",
+    "options": ["Basketball", "Volleyball", "Tennis", "Baseball"],
+    "answer": "Tennis",
+    "category": "Sports & Leisure"
   },
   {
-    "question": "What is the primary source of energy for all living organisms?",
-    "answer": "Sun",
-    "category": "Science",
-    "difficulty": "2",
-    "id": "45"
+    "question": "Which sport uses a 'javelin'?",
+    "options": ["Discus", "Shot put", "High jump", "Javelin throw"],
+    "answer": "Javelin throw",
+    "category": "Sports & Leisure"
   },
   {
-    "question": "Which gas makes up the majority of the Earth's atmosphere?",
-    "answer": "Nitrogen",
-    "category": "Science",
-    "difficulty": "2",
-    "id": "46"
+    "question": "In what sport would you use a 'hook' and a 'jab'?",
+    "options": ["Basketball", "Boxing", "Tennis", "Golf"],
+    "answer": "Boxing",
+    "category": "Sports & Leisure"
   },
   {
-    "question": "What is the function of the nucleus in a cell?",
-    "answer": "Contains DNA and controls cell activities",
-    "category": "Science",
-    "difficulty": "2",
-    "id": "47"
+    "question": "In which sport are there positions known as 'hooker' and 'prop'?",
+    "options": ["Cricket", "Rugby", "Soccer", "Basketball"],
+    "answer": "Rugby",
+    "category": "Sports & Leisure"
   },
   {
-    "question": "What is the process of a solid changing directly into a gas called?",
-    "answer": "Sublimation",
-    "category": "Science",
-    "difficulty": "2",
-    "id": "48"
+    "question": "In what sport do players slide stones on ice?",
+    "options": ["Ice hockey", "Curling", "Bobsleigh", "Ice skating"],
+    "answer": "Curling",
+    "category": "Sports & Leisure"
   },
   {
-    "question": "What is the largest planet in our solar system?",
-    "answer": "Jupiter",
-    "category": "Science",
-    "difficulty": "3",
-    "id": "49"
+    "question": "What sport does Serena Williams play?",
+    "options": ["Tennis", "Basketball", "Soccer", "Golf"],
+    "answer": "Tennis",
+    "category": "Sports & Leisure"
   },
   {
-    "question": "What is the process of water changing from a gas to a liquid called?",
-    "answer": "Condensation",
-    "category": "Science",
-    "difficulty": "3",
-    "id": "50"
+    "question": "What sport is played on a diamond?",
+    "options": ["Cricket", "Rugby", "Baseball", "Soccer"],
+    "answer": "Baseball",
+    "category": "Sports & Leisure"
   },
   {
-    "question": "What is the function of the mitochondria in a cell?",
-    "answer": "Produces energy (ATP)",
-    "category": "Science",
-    "difficulty": "3",
-    "id": "51"
-  },
-  {
-    "question": "Name the three primary colors.",
-    "answer": "Red, blue, and yellow",
-    "category": "Science",
-    "difficulty": "3",
-    "id": "52"
-  },
-  {
-    "question": "What is the function of the respiratory system?",
-    "answer": "Facilitates breathing and gas exchange",
-    "category": "Science",
-    "difficulty": "3",
-    "id": "53"
-  },
-  {
-    "question": "What is the unit of measurement for force?",
-    "answer": "Newton (N)",
-    "category": "Science",
-    "difficulty": "3",
-    "id": "54"
-  },
-  {
-    "question": "What is the process of a liquid changing into a gas called?",
-    "answer": "Vaporization",
-    "category": "Science",
-    "difficulty": "4",
-    "id": "55"
-  },
-  {
-    "question": "Which gas is essential for respiration?",
-    "answer": "Oxygen",
-    "category": "Science",
-    "difficulty": "4",
-    "id": "56"
-  },
-  {
-    "question": "What is the process of plants releasing oxygen called?",
-    "answer": "Photosynthesis",
-    "category": "Science",
-    "difficulty": "4",
-    "id": "57"
-  },
-  {
-    "question": "What is the smallest unit of an element?",
-    "answer": "Atom",
-    "category": "Science",
-    "difficulty": "4",
-    "id": "58"
-  },
-  {
-    "question": "What is the process of plants losing water through their leaves called?",
-    "answer": "Transpiration",
-    "category": "Science",
-    "difficulty": "4",
-    "id": "59"
+    "question": "In what sport do you do a 'flip turn'?",
+    "options": ["Basketball", "Gymnastics", "Swimming", "Diving"],
+    "answer": "Swimming",
+    "category": "Sports & Leisure"
   },
   {
     "question": "What is the capital of France?",
+    "options": ["London", "Berlin", "Paris", "Rome"],
     "answer": "Paris",
-    "category": "Geography",
-    "difficulty": "1",
-    "id": "60"
+    "category": "Geography"
   },
   {
-    "question": "Name the largest ocean in the world.",
+    "question": "Which is the largest ocean?",
+    "options": ["Atlantic Ocean", "Arctic Ocean", "Indian Ocean", "Pacific Ocean"],
     "answer": "Pacific Ocean",
-    "category": "Geography",
-    "difficulty": "1",
-    "id": "61"
+    "category": "Geography"
   },
   {
-    "question": "What is the highest mountain in the world?",
-    "answer": "Mount Everest",
-    "category": "Geography",
-    "difficulty": "1",
-    "id": "62"
+    "question": "What is the largest continent?",
+    "options": ["Africa", "Asia", "Europe", "Australia"],
+    "answer": "Asia",
+    "category": "Geography"
   },
   {
-    "question": "Which country is known as the \"Land of the Rising Sun\"?",
-    "answer": "Japan",
-    "category": "Geography",
-    "difficulty": "1",
-    "id": "63"
-  },
-  {
-    "question": "What is the longest river in Africa?",
+    "question": "What is the longest river in the world?",
+    "options": ["Amazon River", "Nile River", "Yangtze River", "Mississippi River"],
     "answer": "Nile River",
-    "category": "Geography",
-    "difficulty": "2",
-    "id": "64"
+    "category": "Geography"
   },
   {
-    "question": "Which continent is known as the \"Dark Continent\"?",
-    "answer": "Africa",
-    "category": "Geography",
-    "difficulty": "2",
-    "id": "65"
+    "question": "Which country is the Great Pyramid of Giza located in?",
+    "options": ["India", "Egypt", "Mexico", "Greece"],
+    "answer": "Egypt",
+    "category": "Geography"
   },
   {
-    "question": "Name the largest desert in the world.",
-    "answer": "Sahara Desert",
-    "category": "Geography",
-    "difficulty": "2",
-    "id": "66"
-  },
-  {
-    "question": "What is the capital of Australia?",
-    "answer": "Canberra",
-    "category": "Geography",
-    "difficulty": "2",
-    "id": "67"
+    "question": "Which country is known as the Land of the Rising Sun?",
+    "options": ["China", "South Korea", "Vietnam", "Japan"],
+    "answer": "Japan",
+    "category": "Geography"
   },
   {
     "question": "What is the capital of Canada?",
+    "options": ["Toronto", "Vancouver", "Montreal", "Ottawa"],
     "answer": "Ottawa",
-    "category": "Geography",
-    "difficulty": "2",
-    "id": "68"
+    "category": "Geography"
   },
   {
-    "question": "Name the largest island in the world.",
-    "answer": "Greenland",
-    "category": "Geography",
-    "difficulty": "3",
-    "id": "69"
-  },
-  {
-    "question": "Which country is known for its tulips, windmills, and wooden clogs?",
-    "answer": "The Netherlands",
-    "category": "Geography",
-    "difficulty": "3",
-    "id": "70"
-  },
-  {
-    "question": "What is the smallest continent in the world?",
+    "question": "Which is the smallest continent by land area?",
+    "options": ["Europe", "Australia", "Antarctica", "South America"],
     "answer": "Australia",
-    "category": "Geography",
-    "difficulty": "3",
-    "id": "71"
+    "category": "Geography"
   },
   {
-    "question": "Which country is known for the Amazon Rainforest?",
+    "question": "Which country is home to the kangaroo?",
+    "options": ["South Africa", "Canada", "Australia", "Brazil"],
+    "answer": "Australia",
+    "category": "Geography"
+  },
+  {
+    "question": "Which of these countries is NOT in Europe?",
+    "options": ["Spain", "Italy", "Brazil", "Germany"],
     "answer": "Brazil",
-    "category": "Geography",
-    "difficulty": "3",
-    "id": "72"
+    "category": "Geography"
+  },
+  {
+    "question": "Which is the largest desert in the world?",
+    "options": ["Sahara", "Gobi", "Kalahari", "Arabian"],
+    "answer": "Sahara",
+    "category": "Geography"
+  },
+  {
+    "question": "What is the capital of Australia?",
+    "options": ["Sydney", "Melbourne", "Brisbane", "Canberra"],
+    "answer": "Canberra",
+    "category": "Geography"
+  },
+  {
+    "question": "What mountain range includes Mount Everest?",
+    "options": ["Rocky Mountains", "Alps", "Andes", "Himalayas"],
+    "answer": "Himalayas",
+    "category": "Geography"
+  },
+  {
+    "question": "Which river flows through London?",
+    "options": ["Thames", "Nile", "Amazon", "Yangtze"],
+    "answer": "Thames",
+    "category": "Geography"
+  },
+  {
+    "question": "What is the largest country in the world by land area?",
+    "options": ["United States", "China", "Canada", "Russia"],
+    "answer": "Russia",
+    "category": "Geography"
   },
   {
     "question": "What is the capital of India?",
+    "options": ["Mumbai", "New Delhi", "Chennai", "Kolkata"],
     "answer": "New Delhi",
-    "category": "Geography",
-    "difficulty": "3",
-    "id": "73"
+    "category": "Geography"
   },
   {
-    "question": "Which country is home to the ancient ruins of Machu Picchu?",
-    "answer": "Peru",
-    "category": "Geography",
-    "difficulty": "4",
-    "id": "74"
+    "question": "Which city is known as the City of Love?",
+    "options": ["Paris", "New York", "Rome", "London"],
+    "answer": "Paris",
+    "category": "Geography"
   },
   {
-    "question": "Name the world's largest coral reef system.",
-    "answer": "Great Barrier Reef",
-    "category": "Geography",
-    "difficulty": "4",
-    "id": "75"
+    "question": "Which country is the Eiffel Tower located in?",
+    "options": ["United States", "Germany", "France", "United Kingdom"],
+    "answer": "France",
+    "category": "Geography"
   },
   {
-    "question": "What is the capital of China?",
-    "answer": "Beijing",
-    "category": "Geography",
-    "difficulty": "4",
-    "id": "76"
+    "question": "Which continent is the Sahara Desert located on?",
+    "options": ["Europe", "Asia", "Africa", "Australia"],
+    "answer": "Africa",
+    "category": "Geography"
   },
   {
-    "question": "Which country is known for the Pyramids of Giza?",
-    "answer": "Egypt",
-    "category": "Geography",
-    "difficulty": "4",
-    "id": "77"
+    "question": "Which of these cities is NOT in the United States?",
+    "options": ["Chicago", "Los Angeles", "Toronto", "Houston"],
+    "answer": "Toronto",
+    "category": "Geography"
   },
   {
-    "question": "What is the capital of Argentina?",
-    "answer": "Buenos Aires",
-    "category": "Geography",
-    "difficulty": "4",
-    "id": "78"
+    "question": "Who discovered America?",
+    "options": ["Christopher Columbus", "Albert Einstein", "Napoleon Bonaparte", "Julius Caesar"],
+    "answer": "Christopher Columbus",
+    "category": "History"
   },
   {
-    "question": "Which country is located on the Iberian Peninsula?",
-    "answer": "Spain",
-    "category": "Geography",
-    "difficulty": "4",
-    "id": "79"
+    "question": "When was the Declaration of Independence signed?",
+    "options": ["1776", "1492", "1600", "1865"],
+    "answer": "1776",
+    "category": "History"
   },
   {
-    "question": "Who is the main character in the Harry Potter book series?",
-    "answer": "Harry Potter",
-    "category": "Entertainment",
-    "difficulty": "1",
-    "id": "80"
+    "question": "Who was the first President of the United States?",
+    "options": ["Abraham Lincoln", "George Washington", "Thomas Jefferson", "Benjamin Franklin"],
+    "answer": "George Washington",
+    "category": "History"
   },
   {
-    "question": "What is the highest-grossing film of all time?",
-    "answer": "Avengers: Endgame",
-    "category": "Entertainment",
-    "difficulty": "1",
-    "id": "81"
+    "question": "What was the ship that brought the Pilgrims to America?",
+    "options": ["Santa Maria", "Titanic", "Mayflower", "Endeavour"],
+    "answer": "Mayflower",
+    "category": "History"
   },
   {
-    "question": "Who is the famous wizard in J.K. Rowling's book series?",
-    "answer": "Dumbledore",
-    "category": "Entertainment",
-    "difficulty": "1",
-    "id": "82"
+    "question": "Who was known as the Iron Lady?",
+    "options": ["Queen Victoria", "Margaret Thatcher", "Joan of Arc", "Marie Curie"],
+    "answer": "Margaret Thatcher",
+    "category": "History"
   },
   {
-    "question": "Who is the lead actor in the movie \"Black Panther\"?",
-    "answer": "Chadwick Boseman",
-    "category": "Entertainment",
-    "difficulty": "1",
-    "id": "83"
+    "question": "In which country did the Industrial Revolution begin in the 18th century?",
+    "options": ["United States", "Germany", "United Kingdom", "France"],
+    "answer": "United Kingdom",
+    "category": "History"
   },
   {
-    "question": "What is the name of the band fronted by lead singer Mick Jagger?",
-    "answer": "The Rolling Stones",
-    "category": "Entertainment",
-    "difficulty": "2",
-    "id": "84"
+    "question": "Which famous civil rights activist delivered the 'I Have a Dream' speech?",
+    "options": ["Nelson Mandela", "Martin Luther King Jr.", "Malcolm X", "Barack Obama"],
+    "answer": "Martin Luther King Jr.",
+    "category": "History"
   },
   {
-    "question": "Who is the author of the \"Chronicles of Narnia\" book series?",
-    "answer": "C.S. Lewis",
-    "category": "Entertainment",
-    "difficulty": "2",
-    "id": "85"
+    "question": "Who was the British Prime Minister during World War II?",
+    "options": ["Winston Churchill", "Neville Chamberlain", "Margaret Thatcher", "Tony Blair"],
+    "answer": "Winston Churchill",
+    "category": "History"
   },
   {
-    "question": "Who is the creator of the \"Star Wars\" film franchise?",
-    "answer": "George Lucas",
-    "category": "Entertainment",
-    "difficulty": "2",
-    "id": "86"
+    "question": "Who is known for their theory of relativity?",
+    "options": ["Isaac Newton", "Albert Einstein", "Galileo Galilei", "Nicolaus Copernicus"],
+    "answer": "Albert Einstein",
+    "category": "History"
   },
   {
-    "question": "Which famous singer is known as the \"King of Pop\"?",
-    "answer": "Michael Jackson",
-    "category": "Entertainment",
-    "difficulty": "2",
-    "id": "87"
+    "question": "What was the name of the document that declared American independence from Britain?",
+    "options": ["The Constitution", "The Magna Carta", "The Bill of Rights", "The Declaration of Independence"],
+    "answer": "The Declaration of Independence",
+    "category": "History"
   },
   {
-    "question": "Who is the author of the \"Harry Potter\" book series?",
+    "question": "Who was the Egyptian queen who was known for her beauty?",
+    "options": ["Nefertiti", "Cleopatra", "Hatshepsut", "Tutankhamun"],
+    "answer": "Cleopatra",
+    "category": "History"
+  },
+  {
+    "question": "Who was the first person to step on the moon?",
+    "options": ["Buzz Aldrin", "Yuri Gagarin", "Neil Armstrong", "Michael Collins"],
+    "answer": "Neil Armstrong",
+    "category": "History"
+  },
+  {
+    "question": "What was the ship that sank in 1912 after hitting an iceberg?",
+    "options": ["Endeavour", "Queen Mary", "Santa Maria", "Titanic"],
+    "answer": "Titanic",
+    "category": "History"
+  },
+  {
+    "question": "Which leader is known for starting the French Revolution?",
+    "options": ["Napoleon Bonaparte", "King Louis XVI", "Robespierre", "Marie Antoinette"],
+    "answer": "Robespierre",
+    "category": "History"
+  },
+  {
+    "question": "What war was fought between the North and South regions in the United States?",
+    "options": ["World War I", "World War II", "The Revolutionary War", "The Civil War"],
+    "answer": "The Civil War",
+    "category": "History"
+  },
+  {
+    "question": "Who was assassinated in 1963 and was the 35th President of the United States?",
+    "options": ["John F. Kennedy", "Richard Nixon", "Abraham Lincoln", "Franklin D. Roosevelt"],
+    "answer": "John F. Kennedy",
+    "category": "History"
+  },
+  {
+    "question": "Who was the famous scientist who developed the three laws of motion?",
+    "options": ["Albert Einstein", "Stephen Hawking", "Isaac Newton", "Galileo Galilei"],
+    "answer": "Isaac Newton",
+    "category": "History"
+  },
+  {
+    "question": "Which of these empires was based in present-day Turkey?",
+    "options": ["Roman Empire", "British Empire", "Ottoman Empire", "Persian Empire"],
+    "answer": "Ottoman Empire",
+    "category": "History"
+  },
+  {
+    "question": "What was the period of intellectual and artistic creativity in Europe during the 14th-17th century?",
+    "options": ["Middle Ages", "Victorian Era", "Renaissance", "The Enlightenment"],
+    "answer": "Renaissance",
+    "category": "History"
+  },
+  {
+    "question": "Who invented the telephone?",
+    "options": ["Alexander Graham Bell", "Thomas Edison", "Nikola Tesla", "Benjamin Franklin"],
+    "answer": "Alexander Graham Bell",
+    "category": "History"
+  },
+  {
+    "question": "Which superhero is known as the 'Man of Steel'?",
+    "options": ["Spider-Man", "Iron Man", "Superman", "Batman"],
+    "answer": "Superman",
+    "category": "Entertainment"
+  },
+  {
+    "question": "In the 'Harry Potter' series, what is the name of Harry's pet owl?",
+    "options": ["Dobby", "Hedwig", "Crookshanks", "Scabbers"],
+    "answer": "Hedwig",
+    "category": "Entertainment"
+  },
+  {
+    "question": "What is the name of the princess in 'The Little Mermaid'?",
+    "options": ["Belle", "Ariel", "Cinderella", "Snow White"],
+    "answer": "Ariel",
+    "category": "Entertainment"
+  },
+  {
+    "question": "Which animated movie features a cowboy named Woody?",
+    "options": ["Toy Story", "Cars", "Monsters, Inc.", "Finding Nemo"],
+    "answer": "Toy Story",
+    "category": "Entertainment"
+  },
+  {
+    "question": "In 'Star Wars', what is the name of Han Solo's ship?",
+    "options": ["Death Star", "Star Destroyer", "Millennium Falcon", "TIE Fighter"],
+    "answer": "Millennium Falcon",
+    "category": "Entertainment"
+  },
+  {
+    "question": "Who is Mickey Mouse's girlfriend?",
+    "options": ["Daisy Duck", "Minnie Mouse", "Olive Oyl", "Jessica Rabbit"],
+    "answer": "Minnie Mouse",
+    "category": "Entertainment"
+  },
+  {
+    "question": "Who is the author of the 'Harry Potter' series?",
+    "options": ["Stephenie Meyer", "J.K. Rowling", "Roald Dahl", "R.L. Stine"],
     "answer": "J.K. Rowling",
-    "category": "Entertainment",
-    "difficulty": "2",
-    "id": "88"
+    "category": "Entertainment"
   },
   {
-    "question": "What is the highest-grossing animated film of all time?",
-    "answer": "Frozen II",
-    "category": "Entertainment",
-    "difficulty": "3",
-    "id": "89"
+    "question": "In the movie 'Frozen', who is Elsa's younger sister?",
+    "options": ["Moana", "Ariel", "Anna", "Belle"],
+    "answer": "Anna",
+    "category": "Entertainment"
   },
   {
-    "question": "Who is the main character in the \"Toy Story\" film series?",
-    "answer": "Woody",
-    "category": "Entertainment",
-    "difficulty": "3",
-    "id": "90"
+    "question": "What is the name of the boy who visits Neverland in 'Peter Pan'?",
+    "options": ["Peter", "John", "Michael", "Wendy"],
+    "answer": "John",
+    "category": "Entertainment"
   },
   {
-    "question": "Who is the lead actress in the movie \"Beauty and the Beast\" (2017)?",
-    "answer": "Emma Watson",
-    "category": "Entertainment",
-    "difficulty": "3",
-    "id": "91"
+    "question": "What is the name of the clown in 'It'?",
+    "options": ["Pennywise", "Clownface", "Krusty", "Ronald"],
+    "answer": "Pennywise",
+    "category": "Entertainment"
   },
   {
-    "question": "Who is the creator of the \"Marvel Cinematic Universe\"?",
-    "answer": "Kevin Feige",
-    "category": "Entertainment",
-    "difficulty": "3",
-    "id": "92"
+    "question": "Who is the green ogre in 'Shrek'?",
+    "options": ["Shrek", "Fiona", "Donkey", "Puss in Boots"],
+    "answer": "Shrek",
+    "category": "Entertainment"
   },
   {
-    "question": "What is the name of the famous detective created by Arthur Conan Doyle?",
-    "answer": "Sherlock Holmes",
-    "category": "Entertainment",
-    "difficulty": "3",
-    "id": "93"
+    "question": "What is the name of Simba's father in 'The Lion King'?",
+    "options": ["Scar", "Rafiki", "Mufasa", "Timon"],
+    "answer": "Mufasa",
+    "category": "Entertainment"
   },
   {
-    "question": "Who is the lead actor in the movie \"The Hunger Games\"?",
-    "answer": "Jennifer Lawrence",
-    "category": "Entertainment",
-    "difficulty": "4",
-    "id": "94"
+    "question": "In 'Monsters, Inc.', what is the name of the one-eyed green monster?",
+    "options": ["Boo", "Sully", "Mike", "Randall"],
+    "answer": "Mike",
+    "category": "Entertainment"
   },
   {
-    "question": "Who is the author of the \"Lord of the Rings\" book series?",
-    "answer": "J.R.R. Tolkien",
-    "category": "Entertainment",
-    "difficulty": "4",
-    "id": "95"
+    "question": "What is the name of the spider who befriends a pig in 'Charlotte's Web'?",
+    "options": ["Charlotte", "Wilbur", "Fern", "Templeton"],
+    "answer": "Charlotte",
+    "category": "Entertainment"
   },
   {
-    "question": "Who is the lead actor in the movie \"The Matrix\"?",
-    "answer": "Keanu Reeves",
-    "category": "Entertainment",
-    "difficulty": "4",
-    "id": "96"
+    "question": "What are the names of the three fairy godmothers in 'Sleeping Beauty'?",
+    "options": ["Flora, Fauna, and Merryweather", "Mary, Mungo, and Midge", "Anna, Elsa, and Kristoff", "Ariel, Flounder, and Sebastian"],
+    "answer": "Flora, Fauna, and Merryweather",
+    "category": "Entertainment"
   },
   {
-    "question": "Which band is known for the song \"Bohemian Rhapsody\"?",
-    "answer": "Queen",
-    "category": "Entertainment",
-    "difficulty": "4",
-    "id": "97"
+    "question": "What is the name of the kingdom where the 2013 animated movie 'Frozen' is set?",
+    "options": ["Arendelle", "Atlantica", "Agrabah", "Auradon"],
+    "answer": "Arendelle",
+    "category": "Entertainment"
   },
   {
-    "question": "Who is the author of the \"Game of Thrones\" book series?",
-    "answer": "George R.R. Martin",
-    "category": "Entertainment",
-    "difficulty": "4",
-    "id": "98"
+    "question": "In the TV series 'SpongeBob SquarePants', what is the name of SpongeBob's snail?",
+    "options": ["Squidward", "Patrick", "Gary", "Mr. Krabs"],
+    "answer": "Gary",
+    "category": "Entertainment"
   },
   {
-    "question": "Who is the lead actress in the movie \"La La Land\"?",
-    "answer": "Emma Stone",
-    "category": "Entertainment",
-    "difficulty": "4",
-    "id": "99"
+    "question": "Which famous pop singer is known as the 'Queen of Pop'?",
+    "options": ["Beyoncé", "Madonna", "Taylor Swift", "Britney Spears"],
+    "answer": "Madonna",
+    "category": "Entertainment"
   },
   {
-    "question": "Who is the author of the famous play \"Romeo and Juliet\"?",
-    "answer": "William Shakespeare",
-    "category": "Arts & Literature",
-    "difficulty": "1",
-    "id": "100"
+    "question": "What is the name of the ring in 'The Lord of the Rings'?",
+    "options": ["The One Ring", "The Elder Ring", "The Infinity Ring", "The Golden Ring"],
+    "answer": "The One Ring",
+    "category": "Entertainment"
   },
   {
-    "question": "What is the famous painting by Leonardo da Vinci that depicts a woman with a mysterious smile?",
-    "answer": "Mona Lisa",
-    "category": "Arts & Literature",
-    "difficulty": "1",
-    "id": "101"
+    "question": "Who wrote the music for 'The Lion King'?",
+    "options": ["John Williams", "Alan Menken", "Hans Zimmer", "Danny Elfman"],
+    "answer": "Hans Zimmer",
+    "category": "Entertainment"
   },
   {
-    "question": "Who wrote the \"Harry Potter\" book series?",
-    "answer": "J.K. Rowling",
-    "category": "Arts & Literature",
-    "difficulty": "1",
-    "id": "102"
+    "question": "What is the powerhouse of the cell?",
+    "options": ["Nucleus", "Mitochondria", "Ribosome", "Endoplasmic Reticulum"],
+    "answer": "Mitochondria",
+    "category": "Science"
   },
   {
-    "question": "Who is the author of the book \"The Cat in the Hat\"?",
-    "answer": "Dr. Seuss (Theodor Geisel)",
-    "category": "Arts & Literature",
-    "difficulty": "1",
-    "id": "103"
+    "question": "What are the three states of matter?",
+    "options": ["Solid, Liquid, Gas", "Solid, Liquid, Plasma", "Solid, Gas, Plasma", "Liquid, Gas, Plasma"],
+    "answer": "Solid, Liquid, Gas",
+    "category": "Science"
   },
   {
-    "question": "Who painted the famous artwork \"Starry Night\"?",
-    "answer": "Vincent van Gogh",
-    "category": "Arts & Literature",
-    "difficulty": "2",
-    "id": "104"
+    "question": "What is the boiling point of water in degrees Celsius?",
+    "options": ["100", "0", "50", "37"],
+    "answer": "100",
+    "category": "Science"
   },
   {
-    "question": "Who wrote the classic novel \"Pride and Prejudice\"?",
-    "answer": "Jane Austen",
-    "category": "Arts & Literature",
-    "difficulty": "2",
-    "id": "105"
+    "question": "What does a botanist study?",
+    "options": ["Animals", "Weather", "Plants", "Rocks"],
+    "answer": "Plants",
+    "category": "Science"
   },
   {
-    "question": "Who is the author of the \"Chronicles of Narnia\" book series?",
-    "answer": "C.S. Lewis",
-    "category": "Arts & Literature",
-    "difficulty": "2",
-    "id": "106"
+    "question": "Which planet is known as the Red Planet?",
+    "options": ["Venus", "Mars", "Jupiter", "Saturn"],
+    "answer": "Mars",
+    "category": "Science"
   },
   {
-    "question": "What is the famous tragedy by William Shakespeare that tells the story of Macbeth?",
-    "answer": "Macbeth",
-    "category": "Arts & Literature",
-    "difficulty": "2",
-    "id": "107"
+    "question": "What are animals that eat both plants and other animals called?",
+    "options": ["Herbivores", "Carnivores", "Omnivores", "Scavengers"],
+    "answer": "Omnivores",
+    "category": "Science"
   },
   {
-    "question": "Who is the author of the book \"To Kill a Mockingbird\"?",
-    "answer": "Harper Lee",
-    "category": "Arts & Literature",
-    "difficulty": "2",
-    "id": "108"
+    "question": "What is the largest organ in the human body?",
+    "options": ["Heart", "Brain", "Liver", "Skin"],
+    "answer": "Skin",
+    "category": "Science"
   },
   {
-    "question": "Who painted the artwork \"The Persistence of Memory,\" featuring melting clocks?",
-    "answer": "Salvador Dal\u00ed",
-    "category": "Arts & Literature",
-    "difficulty": "3",
-    "id": "109"
+    "question": "What force pulls objects towards each other?",
+    "options": ["Friction", "Gravity", "Magnetism", "Inertia"],
+    "answer": "Gravity",
+    "category": "Science"
   },
   {
-    "question": "Who wrote the epic poem \"The Odyssey\"?",
-    "answer": "Homer",
-    "category": "Arts & Literature",
-    "difficulty": "3",
-    "id": "110"
+    "question": "What are the three types of rocks?",
+    "options": ["Metamorphic, Igneous, Sedimentary", "Metamorphic, Crystal, Igneous", "Crystal, Sedimentary, Igneous", "Sedimentary, Crystal, Metamorphic"],
+    "answer": "Metamorphic, Igneous, Sedimentary",
+    "category": "Science"
   },
   {
-    "question": "Who is the author of the book \"The Great Gatsby\"?",
-    "answer": "F. Scott Fitzgerald",
-    "category": "Arts & Literature",
-    "difficulty": "3",
-    "id": "111"
+    "question": "What does a meteorologist study?",
+    "options": ["Rocks", "Weather", "Space", "Insects"],
+    "answer": "Weather",
+    "category": "Science"
   },
   {
-    "question": "Who painted the famous artwork \"The Scream\"?",
-    "answer": "Edvard Munch",
-    "category": "Arts & Literature",
-    "difficulty": "3",
-    "id": "112"
+    "question": "What is the chemical symbol for Oxygen?",
+    "options": ["O", "H", "N", "C"],
+    "answer": "O",
+    "category": "Science"
   },
   {
-    "question": "Who wrote the play \"Hamlet\"?",
-    "answer": "William Shakespeare",
-    "category": "Arts & Literature",
-    "difficulty": "3",
-    "id": "113"
+    "question": "What is the human body’s biggest organ?",
+    "options": ["Heart", "Skin", "Brain", "Liver"],
+    "answer": "Skin",
+    "category": "Science"
   },
   {
-    "question": "Who is the author of the book \"The Lord of the Rings\"?",
-    "answer": "J.R.R. Tolkien",
-    "category": "Arts & Literature",
-    "difficulty": "4",
-    "id": "114"
+    "question": "What type of blood cells are created by the bone marrow?",
+    "options": ["White Blood Cells", "Red Blood Cells", "Platelets", "All of the above"],
+    "answer": "All of the above",
+    "category": "Science"
   },
   {
-    "question": "Who painted the famous artwork \"The Starry Night\"?",
-    "answer": "Vincent van Gogh",
-    "category": "Arts & Literature",
-    "difficulty": "4",
-    "id": "115"
+    "question": "What part of the plant conducts photosynthesis?",
+    "options": ["Root", "Stem", "Leaf", "Flower"],
+    "answer": "Leaf",
+    "category": "Science"
   },
   {
-    "question": "Who wrote the novel \"1984\"?",
-    "answer": "George Orwell",
-    "category": "Arts & Literature",
-    "difficulty": "4",
-    "id": "116"
+    "question": "Which gas is most popular in the air we breathe?",
+    "options": ["Oxygen", "Hydrogen", "Carbon Dioxide", "Nitrogen"],
+    "answer": "Nitrogen",
+    "category": "Science"
   },
   {
-    "question": "Who is the author of the play \"Macbeth\"?",
-    "answer": "William Shakespeare",
-    "category": "Arts & Literature",
-    "difficulty": "4",
-    "id": "117"
+    "question": "What does a light-year measure?",
+    "options": ["Time", "Distance", "Light", "Speed"],
+    "answer": "Distance",
+    "category": "Science"
   },
   {
-    "question": "Who painted the artwork \"Guernica,\" depicting the horrors of war?",
-    "answer": "Pablo Picasso",
-    "category": "Arts & Literature",
-    "difficulty": "4",
-    "id": "118"
+    "question": "What kind of energy does an unlit match have?",
+    "options": ["Thermal energy", "Kinetic energy", "Chemical energy", "Potential energy"],
+    "answer": "Chemical energy",
+    "category": "Science"
   },
   {
-    "question": "Who wrote the novel \"Moby-Dick\"?",
-    "answer": "Herman Melville",
-    "category": "Arts & Literature",
-    "difficulty": "4",
-    "id": "119"
+    "question": "What is the process by which plants prepare their own food called?",
+    "options": ["Respiration", "Photosynthesis", "Digestion", "Evaporation"],
+    "answer": "Photosynthesis",
+    "category": "Science"
   },
   {
-    "question": "Who is considered the greatest basketball player of all time?",
-    "answer": "Michael Jordan",
-    "category": "Sports & Leisure",
-    "difficulty": "1",
-    "id": "120"
+    "question": "What is the smallest unit of life?",
+    "options": ["Organism", "Molecule", "Cell", "Organ"],
+    "answer": "Cell",
+    "category": "Science"
   },
   {
-    "question": "What is the most popular sport in the United States?",
-    "answer": "American Football",
-    "category": "Sports & Leisure",
-    "difficulty": "1",
-    "id": "121"
-  },
-  {
-    "question": "In which sport is the World Series championship awarded?",
-    "answer": "Baseball",
-    "category": "Sports & Leisure",
-    "difficulty": "1",
-    "id": "122"
-  },
-  {
-    "question": "Who is the record-breaking swimmer who won 23 Olympic gold medals?",
-    "answer": "Michael Phelps",
-    "category": "Sports & Leisure",
-    "difficulty": "1",
-    "id": "123"
-  },
-  {
-    "question": "Which sport uses a shuttlecock and rackets?",
-    "answer": "Badminton",
-    "category": "Sports & Leisure",
-    "difficulty": "2",
-    "id": "124"
-  },
-  {
-    "question": "What is the term used in soccer when a player scores three goals in a single game?",
-    "answer": "Hat-trick",
-    "category": "Sports & Leisure",
-    "difficulty": "2",
-    "id": "125"
-  },
-  {
-    "question": "In which sport would you find a halfpipe and tricks like ollies and kickflips?",
-    "answer": "Skateboarding",
-    "category": "Sports & Leisure",
-    "difficulty": "2",
-    "id": "126"
-  },
-  {
-    "question": "Who is the fastest man in the world, holding the world record in the 100-meter sprint?",
-    "answer": "Usain Bolt",
-    "category": "Sports & Leisure",
-    "difficulty": "2",
-    "id": "127"
-  },
-  {
-    "question": "Which sport is known as the \"Gentleman's Game\"?",
-    "answer": "Cricket",
-    "category": "Sports & Leisure",
-    "difficulty": "2",
-    "id": "128"
-  },
-  {
-    "question": "What is the term used in tennis when a player wins all four major tournaments in a calendar year?",
-    "answer": "Grand Slam",
-    "category": "Sports & Leisure",
-    "difficulty": "3",
-    "id": "129"
-  },
-  {
-    "question": "Who is the most decorated Olympian of all time, with 28 Olympic medals?",
-    "answer": "Michael Phelps",
-    "category": "Sports & Leisure",
-    "difficulty": "3",
-    "id": "130"
-  },
-  {
-    "question": "In which sport would you find a pommel horse and uneven bars?",
-    "answer": "Gymnastics",
-    "category": "Sports & Leisure",
-    "difficulty": "3",
-    "id": "131"
-  },
-  {
-    "question": "Who is the Argentine professional soccer player known as \"The Flea\"?",
-    "answer": "Lionel Messi",
-    "category": "Sports & Leisure",
-    "difficulty": "3",
-    "id": "132"
-  },
-  {
-    "question": "What is the national sport of Japan?",
-    "answer": "Sumo Wrestling",
-    "category": "Sports & Leisure",
-    "difficulty": "3",
-    "id": "133"
-  },
-  {
-    "question": "Which sport is known as \"The Sport of Kings\"?",
-    "answer": "Horse Racing",
-    "category": "Sports & Leisure",
-    "difficulty": "4",
-    "id": "134"
-  },
-  {
-    "question": "Who is the all-time leading goal scorer in international soccer?",
-    "answer": "Cristiano Ronaldo",
-    "category": "Sports & Leisure",
-    "difficulty": "4",
-    "id": "135"
-  },
-  {
-    "question": "In which sport are the terms \"strike\" and \"spare\" used?",
-    "answer": "Bowling",
-    "category": "Sports & Leisure",
-    "difficulty": "4",
-    "id": "136"
-  },
-  {
-    "question": "Who is the most decorated female gymnast in history, with 32 Olympic and World Championship medals?",
-    "answer": "Simone Biles",
-    "category": "Sports & Leisure",
-    "difficulty": "4",
-    "id": "137"
-  },
-  {
-    "question": "In which sport is the \"Green Jacket\" awarded to the winner of the Masters Tournament?",
-    "answer": "Golf",
-    "category": "Sports & Leisure",
-    "difficulty": "4",
-    "id": "138"
+    "question": "Which planet is known for having rings?",
+    "options": ["Mars", "Venus", "Jupiter", "Saturn"],
+    "answer": "Saturn",
+    "category": "Science"
   }
 ]
