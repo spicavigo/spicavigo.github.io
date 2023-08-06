@@ -1023,6 +1023,7 @@ section code {
 section ul {
     margin-top: .5em;
     list-style-type: none;
+    padding-left: 0;
     /*padding-left: 1em;
     list-style-type: disc*/
 }

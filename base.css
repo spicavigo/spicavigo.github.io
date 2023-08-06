@@ -1085,7 +1085,13 @@ select {
 .nav {
     position: relative;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, .1), 0 4px 6px -2px rgba(0, 0, 0, .05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    top: 0;
 }
+
 
 .nav__title {
     margin: 0px 30px;
@@ -1093,4 +1099,14 @@ select {
     color: #451a03;
     font-weight: bold;
     padding: 20px;
+}
+
+.nav__item {
+    display: inline-block;
+    margin: 0px 30px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #451a03;
 }
