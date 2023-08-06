@@ -3,7 +3,8 @@ const State = Object.freeze({
     ToRoll: 0,
     ToSelectCell: 1,
     ToShowCategory: 2,
-    ToShowQuestion: 3
+    ToShowQuestion: 3,
+    Finished: 4
 });
 
 const CellType = Object.freeze({

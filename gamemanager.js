@@ -69,6 +69,10 @@ class GameManager {
 		return this.pm.getTotalPlayers();
 	}
 
+	hasPlayerWon(player) {
+		return player.wedges.length == 4;
+	}
+
 	movePlayer(playerOrder, cellId) {
 		this.pm.movePlayer(playerOrder, cellId);
 	}

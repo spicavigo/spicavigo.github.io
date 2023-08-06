@@ -21,8 +21,6 @@ function showStatus(text) {
 	e.innerHTML = text
 	e.style.display = "block";
 	e.style.opacity = 1;
-	
-	
 }
 
 function showPlayerHome(player) {
@@ -42,21 +40,21 @@ function addWedge(player, wedge) {
 
 function setPlayerInHeader() {
 	document.getElementById("currentPlayer").innerHTML = PlayerNames[CurrentPlayer];
-  	if (CurrentPlayer == 0)
-  		document.getElementById("currentPlayer").className = "yellow-text"
-  	else if (CurrentPlayer == 1) 
-  		document.getElementById("currentPlayer").className = "red-text"
-  	else if (CurrentPlayer == 2) 
-  		document.getElementById("currentPlayer").className = "blue-text"
-  	else
-  		document.getElementById("currentPlayer").className = "green-text"
+	if (CurrentPlayer == 0)
+		document.getElementById("currentPlayer").className = "yellow-text"
+	else if (CurrentPlayer == 1)
+		document.getElementById("currentPlayer").className = "red-text"
+	else if (CurrentPlayer == 2)
+		document.getElementById("currentPlayer").className = "blue-text"
+	else
+		document.getElementById("currentPlayer").className = "green-text"
 }
 
 function nextPlayer() {
 	// Global var
-	CurrentPlayer = (CurrentPlayer + 1)%NUM_PLAYERS;
-  	// In the header
-  	setPlayerInHeader();
+	CurrentPlayer = (CurrentPlayer + 1) % NUM_PLAYERS;
+	// In the header
+	setPlayerInHeader();
 }
 
 function SetupCategoryDialog(callback) {
@@ -64,11 +62,11 @@ function SetupCategoryDialog(callback) {
 	document.querySelector("dialog .tab2").style.display = "block";
 	var html = ""
 	getCategories().forEach(category => {
-		html += '<option value="'+category+'">' + category + '</option>'
+		html += '<option value="' + category + '">' + category + '</option>'
 
 	});
 	document.querySelector("dialog #category-select").innerHTML = html;
-	document.querySelector("#category-button").onclick = function() {
+	document.querySelector("#category-button").onclick = function () {
 		callback(document.querySelector("dialog #category-select").value)
 	}
 }
@@ -91,7 +89,7 @@ function SetupQADialog(question, callback) {
 		no.style.display = "none";
 		reveal.style.display = "inline-block";
 
-		reveal.onclick = function() {
+		reveal.onclick = function () {
 			SetupQADialog(question, callback)
 		}
 	} else {
@@ -103,11 +101,11 @@ function SetupQADialog(question, callback) {
 		no.style.display = "inline-block";
 		reveal.style.display = "none";
 
-		yes.onclick = function() {
+		yes.onclick = function () {
 			callback(true);
 			window.dialog.close();
 		}
-		no.onclick = function() {
+		no.onclick = function () {
 			callback(false);
 			window.dialog.close();
 		}
@@ -125,7 +123,7 @@ function askQuestion(callback) {
 	}
 	window.dialog.showModal();
 	if (PlayerPositions[CurrentPlayer] == CENTER_CELL_ID) {
-		SetupCategoryDialog(function(category) {
+		SetupCategoryDialog(function (category) {
 			var question = getQuestion(category);
 			SetupQADialog(question, callback);
 		})
@@ -134,57 +132,57 @@ function askQuestion(callback) {
 		var question = getQuestion(category);
 		SetupQADialog(question, callback);
 	}
-	
+
 }
 
 function doRoll() {
 	// Disable roll button
 	document.getElementById("roll-button").style.visibility = "hidden";
 	// Display Roll Value
-  	var value = Math.floor(Math.random() * 6  + 1)
-  	document.getElementById("roll-value").innerHTML = value;
+	var value = Math.floor(Math.random() * 6 + 1)
+	document.getElementById("roll-value").innerHTML = value;
 
-  	var circle = "<div class='circle' data-player-id='" + CurrentPlayer + "'></div>";
-  	getDestinations(PlayerPositions[CurrentPlayer], -1, value).forEach((val) => {
-  		// Pulsate cell
-  		const elem = getCell(val);
-  		elem.classList.add("pulsate-cell");
-  		elem.onclick = function() {
-  			// Stop pulsating cells
-  			var elements = document.querySelectorAll(".pulsate-cell");
+	var circle = "<div class='circle' data-player-id='" + CurrentPlayer + "'></div>";
+	getDestinations(PlayerPositions[CurrentPlayer], -1, value).forEach((val) => {
+		// Pulsate cell
+		const elem = getCell(val);
+		elem.classList.add("pulsate-cell");
+		elem.onclick = function () {
+			// Stop pulsating cells
+			var elements = document.querySelectorAll(".pulsate-cell");
 			for (let i = 0; i < elements.length; i++) {
-				elements[i].onclick = function() {}
+				elements[i].onclick = function () { }
 				elements[i].classList.remove("pulsate-cell");
 			}
-  			// Remove the player's circle and Update current player's position to the selected cell
-  			document.querySelector('[data-player-id="'+CurrentPlayer+'"]').remove();
-  			PlayerPositions[CurrentPlayer] = parseInt(elem.attributes["data-cell-id"].value);
-  			// Put the player in the select cell
-  			elem.innerHTML += circle;
+			// Remove the player's circle and Update current player's position to the selected cell
+			document.querySelector('[data-player-id="' + CurrentPlayer + '"]').remove();
+			PlayerPositions[CurrentPlayer] = parseInt(elem.attributes["data-cell-id"].value);
+			// Put the player in the select cell
+			elem.innerHTML += circle;
 
-  			askQuestion(function(isCorrect) {
-  				// Enable roll button
-  				document.getElementById("roll-button").style.visibility = "visible";
-  				if (!isCorrect) {
-  					// Updae current player
-  					nextPlayer();
-  					//showStatus(PlayerNames[CurrentPlayer] + "'s Turn");
-  				} else {
-  					//showStatus("Roll Again");
-  					if (HQ_CELLS.includes(PlayerPositions[CurrentPlayer])) {
-  						var category = getCategory(PlayerPositions[CurrentPlayer]);
-  						addWedge(CurrentPlayer, category);
-  					}
-  					if (PlayerPositions[CurrentPlayer] == CENTER_CELL_ID && PlayerWedges[CurrentPlayer].size == 4) {
-  						showStatus(PlayerNames[CurrentPlayer] + " Won!!!");
-  						// Disable roll button
+			askQuestion(function (isCorrect) {
+				// Enable roll button
+				document.getElementById("roll-button").style.visibility = "visible";
+				if (!isCorrect) {
+					// Updae current player
+					nextPlayer();
+					//showStatus(PlayerNames[CurrentPlayer] + "'s Turn");
+				} else {
+					//showStatus("Roll Again");
+					if (HQ_CELLS.includes(PlayerPositions[CurrentPlayer])) {
+						var category = getCategory(PlayerPositions[CurrentPlayer]);
+						addWedge(CurrentPlayer, category);
+					}
+					if (PlayerPositions[CurrentPlayer] == CENTER_CELL_ID && PlayerWedges[CurrentPlayer].size == 4) {
+						showStatus(PlayerNames[CurrentPlayer] + " Won!!!");
+						// Disable roll button
 						document.getElementById("roll-button").style.visibility = "hidden";
-  					}
-  				}
-  			});
-  		}
+					}
+				}
+			});
+		}
 
-  	})
+	})
 }
 
 function initBoard() {
@@ -211,21 +209,21 @@ function initBoard() {
 		"green": u.get("greencat")
 	};
 	var info = document.querySelector(".info")
-	info.innerHTML += '<div class="yellow">'+ColorToCategory["yellow"] + '</div>'
-	info.innerHTML += '<div class="red">'+ColorToCategory["red"] + '</div>'
-	info.innerHTML += '<div class="blue">'+ColorToCategory["blue"] + '</div>'
-	info.innerHTML += '<div class="green">'+ColorToCategory["green"] + '</div>'
+	info.innerHTML += '<div class="yellow">' + ColorToCategory["yellow"] + '</div>'
+	info.innerHTML += '<div class="red">' + ColorToCategory["red"] + '</div>'
+	info.innerHTML += '<div class="blue">' + ColorToCategory["blue"] + '</div>'
+	info.innerHTML += '<div class="green">' + ColorToCategory["green"] + '</div>'
 	// Set all players to center
 	var center = getCell(CENTER_CELL_ID);
 	var html = "";
-	for (var i=0; i<NUM_PLAYERS; i++) {
+	for (var i = 0; i < NUM_PLAYERS; i++) {
 		html += "<div class='circle' data-player-id='" + i + "'></div>";
 		showPlayerHome(i);
 	}
 
 	center.innerHTML = html;
 
-	document.getElementById('actions').style.width = (document.getElementById('board').clientWidth-20)+"px";
+	document.getElementById('actions').style.width = (document.getElementById('board').clientWidth - 20) + "px";
 	document.getElementById("roll-button").onclick = doRoll;
 	setPlayerInHeader();
 

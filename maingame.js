@@ -107,6 +107,9 @@ class MainGameController {
         } else {
             update["currentPlayer"] = this.gm.getCurrentPlayer().order % this.gm.getTotalPlayers() + 1;
         }
+        if (this.gm.hasPlayerWon(this.gm.getCurrentPlayer())) {
+            update["state"] = State.Finished;
+        }
         this.gm.updateGameState(update);
     }
 
@@ -153,6 +156,8 @@ class MainGameController {
             case State.ToShowQuestion:
                 this.toShowQuestion(state);
                 break;
+            case State.Finished:
+                this.finishGame();
         }
     }
 
@@ -188,6 +193,13 @@ class MainGameController {
         this.addSelectAnswerEvent(this.selectAnswer.bind(this), this.gm.getCurrentQuestion());
     }
 
+    finishGame() {
+        this.showStatus(this.gm.getCurrentPlayer().name + ' has Won!!!');
+        this.hideDialog();
+        this.hideRollValue();
+        this.stopPulsatingCells();
+        this.disableRoll();
+    }
     // View functions
 
     removeElements(selector) {
@@ -348,6 +360,13 @@ class MainGameController {
         }
         console.log('set')
         console.log(info.innerHTML)
+    }
+
+    showStatus(text) {
+        var e = document.getElementsByClassName('status-text-big')[0];
+        e.innerHTML = text
+        e.style.display = "block";
+        e.style.opacity = 1;
     }
 
     // Event handlers

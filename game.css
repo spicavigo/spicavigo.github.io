@@ -448,6 +448,7 @@ dialog select {
   font-size: 200px;
   font-weight: 400;
   display: none;
+  z-index: 10;
 }
 
 .home_title {
