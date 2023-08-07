@@ -7,7 +7,7 @@ class GameManager {
 		gameRef.child('categories').set(categories);
 		gameRef.child('state').set({
 			'state': State.ToRoll,
-			'currentPlayer': 1,
+			'currentPlayer': players[0].order,
 			'rollValue': 0
 		})
 		return new GameManager(database, teacherId, gameRef.key);
@@ -75,6 +75,10 @@ class GameManager {
 
 	movePlayer(playerOrder, cellId) {
 		this.pm.movePlayer(playerOrder, cellId);
+	}
+
+	getNextPlayer() {
+		return this.pm.getNextPlayer(this.state.currentPlayer);
 	}
 
 	updatePlayerWedge(token) {

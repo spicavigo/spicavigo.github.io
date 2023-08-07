@@ -474,3 +474,21 @@ details .button {
 details button:hover {
   background: #0ea271
 }
+
+.gg-close::after,
+.gg-close::before {
+  left: auto;
+  right: -1px;
+  width: 12px;
+}
+
+.gg-check::after {
+  left: auto;
+  right: 3px;
+}
+
+.gg-check,
+.gg-close {
+  width: auto;
+  height: auto;
+}

@@ -78,6 +78,12 @@ class PlayersManager {
 		return this.playersList.length;
 	}
 
+	getNextPlayer(order) {
+		for (const player of this.playersList.concat(this.playersList).slice(order)) {
+			if (player != undefined) return player.order;
+		}
+	}
+
 	movePlayer(order, cellId) {
 		var player = this.getPlayerByOrder(order);
 		player.cellId = cellId;
@@ -92,16 +98,16 @@ class PlayersManager {
 
 	playerCallback(snapshot) {
 		this.players = snapshot.val();
-		this.playersList = Array(Object.keys(this.players).length);
+		this.playersList = Array(4);
 		for (const [key, player] of Object.entries(this.players)) {
 			this.playersList[player.order - 1] = this.createPlayer(key, player)
 		}
-		this.updateListener(this.playersList);
+		this.updateListener(this.playersList.filter(x => x !== undefined));
 	}
 
 	setPlayerListener(callback) {
 		this.updateListener = callback;
-		this.updateListener(this.playersList);
+		this.updateListener(this.playersList.filter(x => x !== undefined));
 	}
 
 	startListener() {

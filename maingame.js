@@ -105,7 +105,7 @@ class MainGameController {
                     break;
             }
         } else {
-            update["currentPlayer"] = this.gm.getCurrentPlayer().order % this.gm.getTotalPlayers() + 1;
+            update["currentPlayer"] = this.gm.getNextPlayer(); //this.gm.getCurrentPlayer().order % this.gm.getTotalPlayers() + 1;
         }
         if (this.gm.hasPlayerWon(this.gm.getCurrentPlayer())) {
             update["state"] = State.Finished;
@@ -337,7 +337,6 @@ class MainGameController {
     showPlayerInfo(players) {
         return
         if (players.length == 0) return
-        console.log(players)
         var info = document.querySelector(".info .game-players");
         info.innerHTML = '<span>Players</span>'
         for (const player of players) {
@@ -358,8 +357,6 @@ class MainGameController {
             }
             info.innerHTML += '<div class="' + color + '">' + player.name + '</div>';
         }
-        console.log('set')
-        console.log(info.innerHTML)
     }
 
     showStatus(text) {
@@ -390,6 +387,7 @@ class MainGameController {
 
     addSelectAnswerEvent(callback, question) {
         var self = this;
+        console.log(question);
         document.querySelector("#answer-button").onclick = function () {
             var elem = document.querySelector('input[name="answer"]:checked');
             if (elem == null) {
@@ -397,8 +395,26 @@ class MainGameController {
             }
             var answer = elem.value;
             var isCorrect = answer == question.answer;
-            callback(isCorrect, answer);
-            document.querySelector("#answer-button").onclick = self.hideDialog;
+
+            // Add check and cross to answers
+            document.querySelectorAll('input[name="answer"]').forEach(node => {
+                if (node.value == question.answer) {
+                    if (!node.parentElement.classList.contains('gg-check')) {
+                        node.parentElement.classList.add('gg-check');
+                    }
+                } else if (node.checked) {
+                    if (!node.parentElement.classList.contains('gg-close')) {
+                        node.parentElement.classList.add('gg-close');
+                    }
+                }
+
+            });
+
+            document.querySelector("#answer-button").onclick = function () {
+
+                self.hideDialog();
+                callback(isCorrect, answer);
+            }
         }
     }
 
