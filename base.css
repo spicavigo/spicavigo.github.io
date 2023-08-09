@@ -1090,6 +1090,10 @@ select {
     align-items: center;
     height: 60px;
     top: 0;
+    background: url(logo.png) no-repeat;
+    background-size: 50px 50px;
+    background-position-x: 6px;
+    background-position-y: 6px;
 }
 
 
@@ -1099,10 +1103,6 @@ select {
     color: #451a03;
     font-weight: bold;
     padding: 20px;
-    background: url('logo.png') no-repeat;
-    background-size: 50px 50px;
-    background-position-x: 10px;
-    background-position-y: 10px;
 }
 
 .nav__item {
