@@ -1099,6 +1099,10 @@ select {
     color: #451a03;
     font-weight: bold;
     padding: 20px;
+    background: url('logo.png') no-repeat;
+    background-size: 50px 50px;
+    background-position-x: 10px;
+    background-position-y: 10px;
 }
 
 .nav__item {
