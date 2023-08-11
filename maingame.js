@@ -1,19 +1,9 @@
-var teacherId = 1;
-
 class MainGameController {
-    constructor(database, teacherId, gameId) {
+    constructor(database, gameId) {
         this.database = database;
-        this.gm = new GameManager(database, teacherId, gameId);
-        this.qm = new QuestionManager(database, teacherId);
-
-        // View param
-        this.qContainer = new Quill("#question-container", {
-            modules: {
-                toolbar: null
-            },
-            readOnly: true,
-            theme: 'snow'  // or 'bubble'
-        });
+        this.user = new User(database);
+        this.gameId = gameId;
+        this.user.init(this.init.bind(this));
     }
 
     roll(min, max) {
@@ -109,6 +99,7 @@ class MainGameController {
         }
         if (this.gm.hasPlayerWon(this.gm.getCurrentPlayer())) {
             update["state"] = State.Finished;
+            update["winner"] = this.gm.getCurrentPlayer().username;
         }
         this.gm.updateGameState(update);
     }
@@ -123,7 +114,7 @@ class MainGameController {
         // 3. (Optional) Online state of player
         players.forEach(player => {
             this.movePlayer(player.order, player.cellId);
-            this.showPlayerWedges(player.name, player.order, player.wedges);
+            this.showPlayerWedges(player.displayName, player.order, player.wedges);
         }, this);
 
     }
@@ -131,7 +122,7 @@ class MainGameController {
     updateGameState(state) {
         this.showCategoryInfo(this.gm.getCategories());
         var currentPlayer = this.gm.getCurrentPlayer();
-        this.showCurrentPlayer(currentPlayer.name);
+        this.showCurrentPlayer(currentPlayer.displayName);
         // If I am current player, then
         // 	1. If the state is toroll, enable roll button
         // 	2. If the state is ToSelectCell,
@@ -194,7 +185,7 @@ class MainGameController {
     }
 
     finishGame() {
-        this.showStatus(this.gm.getCurrentPlayer().name + ' has Won!!!');
+        this.showStatus(this.gm.getCurrentPlayer().displayName + ' has Won!!!');
         this.hideDialog();
         this.hideRollValue();
         this.stopPulsatingCells();
@@ -335,7 +326,6 @@ class MainGameController {
     }
 
     showPlayerInfo(players) {
-        return
         if (players.length == 0) return
         var info = document.querySelector(".info .game-players");
         info.innerHTML = '<span>Players</span>'
@@ -355,7 +345,12 @@ class MainGameController {
                     color = "green";
                     break;
             }
-            info.innerHTML += '<div class="' + color + '">' + player.name + '</div>';
+            var suffix = " (Online)"
+            if (!player.isOnline) {
+                color += " offline";
+                suffix = " (Offline)"
+            }
+            info.innerHTML += '<div class="' + color + '">' + player.displayName + suffix + '</div>';
         }
     }
 
@@ -387,7 +382,6 @@ class MainGameController {
 
     addSelectAnswerEvent(callback, question) {
         var self = this;
-        console.log(question);
         document.querySelector("#answer-button").onclick = function () {
             var elem = document.querySelector('input[name="answer"]:checked');
             if (elem == null) {
@@ -419,17 +413,28 @@ class MainGameController {
     }
 
     init() {
+        this.teacherId = Object.keys(this.user.class)[0];
+        this.gm = new GameManager(database, this.teacherId, this.gameId, this.user);
+        this.qm = new QuestionManager(database, this.teacherId);
+
+        // View param
+        this.qContainer = new Quill("#question-container", {
+            modules: {
+                toolbar: null
+            },
+            readOnly: true,
+            theme: 'snow'  // or 'bubble'
+        });
+
         this.gm.setPlayerListener(this.updatePlayers.bind(this));
         this.gm.setGameStateListener(this.updateGameState.bind(this));
     }
 }
 
-var u = new URLSearchParams(window.location.search);
-const controller = new MainGameController(database, teacherId, u.get("gameid"));
-function init() {
 
-    //const controller = new MainGameController(database, teacherId, '-NauBg4cXxQWGbuQN2h0');
-    controller.init();
+function init() {
+    var u = new URLSearchParams(window.location.search);
+    const controller = new MainGameController(database, u.get("gameid"));
 }
 
 window.onload = init;

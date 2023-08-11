@@ -13,10 +13,10 @@ class GameManager {
 		return new GameManager(database, teacherId, gameRef.key);
 	}
 
-	constructor(datanase, teacherId, gameId) {
+	constructor(database, teacherId, gameId, me) {
 		this.gameId = gameId
 		this.gameRef = database.ref(`teacher/${teacherId}/game/${gameId}`);
-		this.pm = new PlayersManager(database, teacherId, gameId);
+		this.pm = new PlayersManager(database, teacherId, gameId, me);
 		this.qm = new QuestionManager(database, teacherId);
 
 		this.categories = [];

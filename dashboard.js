@@ -1,7 +1,9 @@
 
 class DashboardController {
     constructor(database) {
-        this.qm = new QuestionManager(database, 1);
+        this.database = database;
+        this.user = new User(database);
+        this.user.init(this.init.bind(this));
     }
 
     categorySubmit(e) {
@@ -49,8 +51,8 @@ class DashboardController {
     resetQuestion() {
         quill.setContents();
         var sel = document.getElementById("options").options;
-        for (var i = 1; i < sel.length; i++) { // looping over the options
-            sel.remove(i);
+        while (sel.length > 1) { // looping over the options
+            sel.remove(1);
         }
         document.getElementById("options").options[0].selected = true;
     }
@@ -183,7 +185,33 @@ class DashboardController {
         })
     }
 
+    updateInviteLink() {
+        var self = this;
+        var ref = database.ref(`teacher/${this.user.username}`);
+        ref.once('value', function (snapshot) {
+            if (snapshot.val() == null || !snapshot.val().icode) {
+                var icode = database.ref('invites/').push();
+                icode.set({
+                    "teacher": self.user.username,
+                    "displayName": self.user.displayName
+                });
+                ref.update({ "icode": icode.key });
+                self.displayInviteLink(icode.key);
+            } else {
+                self.displayInviteLink(snapshot.val().icode);
+            }
+        });
+    }
+
+    displayInviteLink(icode) {
+        document.querySelector('.copylink').innerHTML = window.location.origin + "/invite.html?icode=" + icode;
+    }
+
     init() {
+        this.qm = new QuestionManager(database, this.user.username);
+
+        this.updateInviteLink()
+
         document.getElementById("newcat").addEventListener("keyup", this.categorySubmit.bind(this));
         document.getElementById("newoption").addEventListener("keyup", this.optionAdd.bind(this));
         document.getElementById("submit-button").addEventListener("click", this.addQuestion.bind(this));
@@ -196,7 +224,6 @@ class DashboardController {
 
 function init() {
     const controller = new DashboardController(database);
-    controller.init();
 }
 
 window.onload = init;

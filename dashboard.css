@@ -228,7 +228,8 @@ table {
 .nice-form-group>input[type=url],
 .nice-form-group>input[type=week],
 .nice-form-group>select,
-.nice-form-group>textarea {
+.nice-form-group>textarea,
+.copylink {
     background: var(--nf-input-background-color);
     font-family: inherit;
     font-size: var(--nf-input-font-size);

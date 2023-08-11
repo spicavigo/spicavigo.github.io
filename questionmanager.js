@@ -28,13 +28,16 @@ class QuestionManager {
 		this.database = database
 		this.categoryRef = this.database.ref(`teacher/${teacherId}/category`);
 		this.questionRef = this.database.ref(`teacher/${teacherId}/question`);
+		this.studentRef = this.database.ref(`teacher/${teacherId}/students`);
 
 		this.categoriesUpdateListener = function (categories) { }
-		this.questionsUpdateListener = function (categories) { }
+		this.questionsUpdateListener = function (questions) { }
+		this.studentssUpdateListener = function (students) { }
 
 		this.questionsList = [];
 		this.questions = {};
 		this.categories = [];
+		this.students = [];
 		this.startListening();
 	}
 
@@ -54,6 +57,21 @@ class QuestionManager {
 	startListening() {
 		this.categoryRef.on("value", this.categoryListener.bind(this));
 		this.questionRef.on("value", this.questionListener.bind(this));
+		this.studentRef.on("value", this.studentsListener.bind(this));
+	}
+
+	addStudentsListener(callback) {
+		this.studentssUpdateListener = callback;
+		this.studentssUpdateListener(this.students);
+	}
+
+	studentsListener(snapshot) {
+		this.students = [];
+		var self = this;
+		snapshot.forEach(function (childSnapshot) {
+			self.students.push(childSnapshot.val());
+		});
+		this.studentssUpdateListener(this.students);
 	}
 
 	categoryListener(snapshot) {
@@ -87,6 +105,12 @@ class QuestionManager {
 			self.questionsList.push(question);
 			self.questions[question.key] = question;
 		});
+		// Shuffle
+		this.questionsList = this.questionsList
+			.map(value => ({ value, sort: Math.random() }))
+			.sort((a, b) => a.sort - b.sort)
+			.map(({ value }) => value);
+
 		this.questionsUpdateListener(this.questionsList);
 	}
 

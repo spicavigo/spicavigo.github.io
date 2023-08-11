@@ -48,6 +48,7 @@ body {
   height: 15px;
   margin-right: 5px;
   background: #F7DE3A;
+  vertical-align: -3px;
 }
 
 .red {
@@ -62,6 +63,7 @@ body {
   height: 15px;
   margin-right: 5px;
   background: #ff6564;
+  vertical-align: -3px;
 }
 
 .blue {
@@ -75,6 +77,7 @@ body {
   height: 15px;
   margin-right: 5px;
   background: #5ac8fa;
+  vertical-align: -3px;
 }
 
 .green {
@@ -88,6 +91,14 @@ body {
   height: 15px;
   margin-right: 5px;
   background: #63e89e;
+  vertical-align: -3px;
+}
+
+.yellow.offline:before,
+.red.offline:before,
+.blue.offline:before,
+.green.offline:before {
+  background: #d1d1d1;
 }
 
 .grid {

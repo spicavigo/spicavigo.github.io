@@ -1,10 +1,12 @@
 class Player {
-	constructor(name, order, cellId = -1, wedges = [], ref) {
-		this.name = name;
+	constructor(username, displayName, order, cellId = -1, wedges = [], ref, isOnline = false) {
+		this.username = username;
+		this.displayName = displayName;
 		this.order = order;
 		this.cellId = cellId;
 		this.wedges = wedges;
 		this.ref = ref;
+		this.isOnline = isOnline;
 	}
 
 	setRef(ref) {
@@ -17,8 +19,9 @@ class Player {
 	}
 
 	save() {
-		this.ref.set({
-			'name': this.name,
+		this.ref.update({
+			'username': this.username,
+			'displayName': this.displayName,
 			'order': this.order,
 			'cellId': this.cellId,
 			'wedges': this.wedges
@@ -27,7 +30,8 @@ class Player {
 
 	toJSON() {
 		return JSON.stringify({
-			name: this.name,
+			username: this.username,
+			displayName: this.displayName,
 			order: this.order,
 			cellId: this.cellId,
 			wedges: this.wedges
@@ -36,24 +40,39 @@ class Player {
 
 	static fromJSON(json) {
 		var obj = JSON.parse(json);
-		return new Player(obj.name, obj.order, obj.cellId, obj.wedges == undefined ? [] : obj.wedges);
+		return new Player(obj.username, obj.displayName, obj.order, obj.cellId, obj.wedges == undefined ? [] : obj.wedges);
 	}
 
-	static createPlayer(name, order) {
-		return new Player(name, order, Board.CENTER_CELL_ID);
+	static createPlayer(username, displayName, order) {
+		return new Player(username, displayName, order, Board.CENTER_CELL_ID);
 	}
 }
 
 class PlayersManager {
-	constructor(database, teacherId, gameId) {
+	constructor(database, teacherId, gameId, me) {
+		this.me = me;
 		this.playerRef = database.ref(`teacher/${teacherId}/game/${gameId}/players`);
 
 		this.players = {};
 		this.playersList = [];
 
+		this.updateOnlineStatus();
 		this.updateListener = function () { }
 		this.startListener();
 
+	}
+
+	updateOnlineStatus() {
+		var self = this;
+		this.playerRef.once('value', function (snapshot) {
+			var players = snapshot.val();
+			for (const [key, player] of Object.entries(players)) {
+				if (player.username == self.me.username) {
+					self.playerRef.child(key).onDisconnect().update({ 'online': false });
+					self.playerRef.child(key).update({ 'online': true });
+				}
+			}
+		});
 	}
 
 	createPlayers(players) {
@@ -66,8 +85,9 @@ class PlayersManager {
 	}
 
 	createPlayer(key, player) {
-		return new Player(player.name, player.order, player.cellId == -1 ? Board.CENTER_CELL_ID : player.cellId,
-			player.wedges, this.playerRef.child(key));
+		return new Player(player.username, player.displayName, player.order,
+			player.cellId == -1 ? Board.CENTER_CELL_ID : player.cellId,
+			player.wedges, this.playerRef.child(key), player.online);
 	}
 
 	getPlayerByOrder(order) {

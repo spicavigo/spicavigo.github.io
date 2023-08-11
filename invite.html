@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>New Game: MRVL's Trivial Compute</title>
+    <link rel="stylesheet" href="base.css" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <style>
+        html,
+        body {
+            margin: 0;
+            height: 100%;
+        }
+
+        section {
+            margin: 50px auto;
+        }
+
+
+
+        details .button {
+            display: inline-block;
+            padding: .5em 1em;
+            border-radius: 5px;
+            font-size: .875rem;
+            background: #10b981;
+            top: 1em;
+            right: 1em;
+            color: #fff;
+            font-weight: 500;
+            -webkit-user-select: none;
+            user-select: none;
+            cursor: pointer
+        }
+
+        details button:hover {
+            background: #0ea271
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="nav__title">MRVL's Trivial Compute</div>
+        <ul class="nav__list">
+            <li class="nav__item" id="signout">Sign Out</li>
+        </ul>
+    </nav>
+    <div class="demo-page">
+        <main class="demo-page-content">
+            <section>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script>
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyD4CULXX8KCQcI9zjsPMXvmsOj_G42kCf0",
+            authDomain: "mrvl-trivialcompute.firebaseapp.com",
+            databaseURL: "https://mrvl-trivialcompute-default-rtdb.firebaseio.com",
+            projectId: "mrvl-trivialcompute",
+            storageBucket: "mrvl-trivialcompute.appspot.com",
+            messagingSenderId: "217741458524",
+            appId: "1:217741458524:web:7fc22512ca79bed02ffa99"
+        };
+
+        // Initialize Firebase
+        var app = firebase.initializeApp(firebaseConfig);
+        var database = firebase.database(app);
+
+    </script>
+    <script src="common.js"></script>
+    <script src="user.js"></script>
+    <script>
+        function showMessage(message, isError = false) {
+            if (isError) {
+                document.querySelector('section').innerHTML = "<h1>Sorry!</h1>"
+            } else {
+                document.querySelector('section').innerHTML = "<h1>Success!</h1>"
+            }
+            document.querySelector('section').innerHTML += message;
+        }
+
+        function acceptInvite() {
+            if (user.type == "teacher") {
+                return showMessage("Only students can join a class. You are a teacher.", true)
+            }
+            var u = new URLSearchParams(window.location.search);
+            var icode = u.get("icode");
+            var ref = database.ref(`invites/${icode}`);
+            var startGameHTML = '<details><summary><a href="index.html" id="submit - button" class="button">Start New Game</div></summary></details>';
+            ref.once('value', function (snapshot) {
+
+                var val = snapshot.val();
+                if (val == null) {
+                    return showMessage("This is an invalid invitation link.", true);
+                }
+
+                if (user.class.hasOwnProperty(val.teacher)) {
+                    return showMessage(`You are already part of this class. ${startGameHTML}`, false);
+                } else {
+                    user.class[val.teacher] = val.displayName;
+                    user.updateDB();
+                    database.ref(`teacher/${val.teacher}/students`).push({
+                        "username": user.username,
+                        "displayName": user.displayName
+                    }, function () {
+                        showMessage(`You have been added to ${val.displayName}'s' class. ${startGameHTML}`, false);
+                    });
+                }
+
+            })
+        }
+
+        var user = new User(database);
+        user.init(acceptInvite)
+
+    </script>
+</body>
+
+</html>

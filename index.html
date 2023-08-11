@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title>New Game: Trivial Compute</title>
+	<title>New Game: MRVL's Trivial Compute</title>
 	<link rel="stylesheet" href="base.css" />
 	<link rel="stylesheet" href="index.css" />
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
@@ -11,9 +11,10 @@
 
 <body>
 	<nav class="nav">
-		<div class="nav__title">Trivial Compute</div>
+		<div class="nav__title">MRVL's Trivial Compute</div>
 		<ul class="nav__list">
 			<li class="nav__item"><a href="playerguide.html" target="_blank">Player Guide</a></li>
+			<li class="nav__item" id="signout">Sign Out</li>
 		</ul>
 	</nav>
 	<div class="demo-page">
@@ -43,20 +44,28 @@
 
 					<div class="nice-form-group">
 						<label for="player1">Player 1:</label>
-						<input type="text" id="player1" name="player1" value="">
+						<select id="player1" name="player1">
+							<option disabled selected>Please select a Player</option>
+						</select>
 					</div>
 
 					<div class="nice-form-group">
 						<label for="player2">Player 2:</label>
-						<input type="text" id="player2" name="player2" value="">
+						<select id="player2" name="player2">
+							<option disabled selected>Please select a Player</option>
+						</select>
 					</div>
 					<div class="nice-form-group">
 						<label for="player3">Player 3:</label>
-						<input type="text" id="player3" name="player3" value="">
+						<select id="player3" name="player3">
+							<option disabled selected>Please select a Player</option>
+						</select>
 					</div>
 					<div class="nice-form-group">
 						<label for="player4">Player 4:</label>
-						<input type="text" id="player4" name="player4" value="">
+						<select id="player4" name="player4">
+							<option disabled selected>Please select a Player</option>
+						</select>
 					</div>
 
 					<details>
@@ -92,6 +101,7 @@
 
 	<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
 	<script>
 
 		// Your web app's Firebase configuration
@@ -111,6 +121,7 @@
 
 	</script>
 	<script src="common.js"></script>
+	<script src="user.js"></script>
 	<script src="board.js"></script>
 	<script src="gamemanager.js"></script>
 	<script src="playersmanager.js"></script>

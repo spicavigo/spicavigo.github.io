@@ -1107,10 +1107,23 @@ select {
 
 .nav__item {
     display: inline-block;
-    margin: 0px 30px;
+    margin: 0px 9px;
+    height: 32px;
+    line-height: 32px;
 }
 
 .nav a {
     text-decoration: none;
     color: #451a03;
+}
+
+#signout {
+    display: none;
+    cursor: pointer;
+    color: #451a03;
+    display: inline-block;
+    background-size: 32px 32px;
+    background-repeat: no-repeat;
+    padding-right: 38px;
+    background-position-x: 72px;
 }

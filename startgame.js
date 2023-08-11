@@ -1,13 +1,21 @@
-
-const teacherId = 1;
-
 class StartGameController {
 	constructor(database) {
 		this.database = database;
-		this.teacherId = teacherId;
-		this.qm = new QuestionManager(database, this.teacherId);
-		this.categories = [];
-		this.categoriesAdded = false
+		this.user = new User(database);
+		this.user.init(this.init.bind(this));
+	}
+
+	showError(message, closeable = true) {
+		document.getElementById("errorDialog").querySelector("p").innerHTML = message;
+		if (closeable) {
+			document.querySelector(".details-modal-close").style.display = "flex";
+		} else {
+			document.querySelector(".details-modal-close").style.display = "none";
+			document.getElementById("errorDialog").addEventListener('cancel', (event) => {
+				event.preventDefault();
+			});
+		}
+		document.getElementById("errorDialog").showModal();
 	}
 
 	updateCategories(categories) {
@@ -22,15 +30,24 @@ class StartGameController {
 		this.categoriesAdded = categories.length > 0;
 	}
 
+	updateStudents(students) {
+		if (this.studentsAdded) return;
+		students.forEach(item => {
+			document.querySelector("#player1").innerHTML += '<option value="' + item.username + '">' + item.displayName + '</option>'
+			document.querySelector("#player2").innerHTML += '<option value="' + item.username + '">' + item.displayName + '</option>'
+			document.querySelector("#player3").innerHTML += '<option value="' + item.username + '">' + item.displayName + '</option>'
+			document.querySelector("#player4").innerHTML += '<option value="' + item.username + '">' + item.displayName + '</option>'
+		});
+		this.studentsAdded = students.length > 0;
+	}
+
 	validateForm(categories, players) {
 		if (new Set(categories).size != 4) {
-			document.getElementById("errorDialog").querySelector("p").innerHTML = "Select 4 different categories"
-			document.getElementById("errorDialog").showModal();
+			this.showError("Select 4 different categories");
 			return false;
 		}
 		if (players.length == 0) {
-			document.getElementById("errorDialog").querySelector("p").innerHTML = "Specify the name atleast 1 player"
-			document.getElementById("errorDialog").showModal();
+			this.showError("Specify the name atleast 1 player");
 			return false;
 		}
 		return true;
@@ -42,46 +59,59 @@ class StartGameController {
 			document.forms["newgame"].redcat.value,
 			document.forms["newgame"].bluecat.value,
 			document.forms["newgame"].greencat.value];
-		var players = [];
-		if (document.forms["newgame"].player1.value != '') {
-			var p = Player.createPlayer(document.forms["newgame"].player1.value, 1);
-			players.push(p);
+		var players = new Set();
+		if (document.forms["newgame"].player1.selectedIndex != 0) {
+			var username = document.forms["newgame"].player1.selectedOptions[0].value
+			var displayName = document.forms["newgame"].player1.selectedOptions[0].text
+			players.add(Player.createPlayer(username, displayName, 1));
 		}
-		if (document.forms["newgame"].player2.value != '') {
-			var p = Player.createPlayer(document.forms["newgame"].player2.value, 2);
-			players.push(p);
+		if (document.forms["newgame"].player2.selectedIndex != 0) {
+			var username = document.forms["newgame"].player2.selectedOptions[0].value
+			var displayName = document.forms["newgame"].player2.selectedOptions[0].text
+			players.add(Player.createPlayer(username, displayName, 2));
 		}
-		if (document.forms["newgame"].player3.value != '') {
-			var p = Player.createPlayer(document.forms["newgame"].player3.value, 3);
-			players.push(p);
+		if (document.forms["newgame"].player3.selectedIndex != 0) {
+			var username = document.forms["newgame"].player3.selectedOptions[0].value
+			var displayName = document.forms["newgame"].player3.selectedOptions[0].text
+			players.add(Player.createPlayer(username, displayName, 3));
 		}
-		if (document.forms["newgame"].player4.value != '') {
-			var p = Player.createPlayer(document.forms["newgame"].player4.value, 4);
-			players.push(p);
+		if (document.forms["newgame"].player4.selectedIndex != 0) {
+			var username = document.forms["newgame"].player4.selectedOptions[0].value
+			var displayName = document.forms["newgame"].player4.selectedOptions[0].text
+			players.add(Player.createPlayer(username, displayName, 4));
 		}
 		if (this.validateForm(categories, players)) {
-			var gm = GameManager.createGame(this.database, this.teacherId, categories, players);
+			var gm = GameManager.createGame(this.database, this.teacherId, categories, Array.from(players));
 			window.location.href = "game.html?gameid=" + gm.gameId
-			console.log(gm)
 		}
 
 	}
 
-	init() {
 
+	init() {
 		document.getElementById("submit-button").addEventListener("click", this.createGame.bind(this));
 		document.getElementById("errorDialog").querySelector(".details-modal-close").addEventListener("click", (event) => {
 			document.getElementById("errorDialog").close();
 		});
+		if (Object.keys(this.user.class).length == 0) {
+			this.showError("You are not part of any class. Please ask your teacher to send you an invite.", false);
+			return;
+		}
+
+		this.teacherId = Object.keys(this.user.class)[0];
+		this.qm = new QuestionManager(database, this.teacherId);
+		this.categories = [];
+		this.categoriesAdded = false;
+		this.studentsAdded = false;
 
 		this.qm.addCategoryListener(this.updateCategories.bind(this));
+		this.qm.addStudentsListener(this.updateStudents.bind(this));
 
 	}
 }
 
 function init() {
 	const controller = new StartGameController(database);
-	controller.init();
 }
 
 window.onload = init;
