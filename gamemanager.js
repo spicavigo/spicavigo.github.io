@@ -53,6 +53,14 @@ class GameManager {
 		return this.qm.getQuestionFromKey(this.state.question);
 	}
 
+	getAnswer() {
+		return this.state.answer;
+	}
+
+	getIsCorrect() {
+		return this.state.isCorrect;
+	}
+
 	getNewQuestion(category) {
 		return this.qm.getQuestion(category, this.usedQuestions);
 	}

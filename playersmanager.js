@@ -65,7 +65,7 @@ class PlayersManager {
 	updateOnlineStatus() {
 		var self = this;
 		this.playerRef.once('value', function (snapshot) {
-			var players = snapshot.val();
+			var players = snapshot.val() || {};
 			for (const [key, player] of Object.entries(players)) {
 				if (player.username == self.me.username) {
 					self.playerRef.child(key).onDisconnect().update({ 'online': false });
@@ -117,7 +117,7 @@ class PlayersManager {
 	}
 
 	playerCallback(snapshot) {
-		this.players = snapshot.val();
+		this.players = snapshot.val() || {};
 		this.playersList = Array(4);
 		for (const [key, player] of Object.entries(this.players)) {
 			this.playersList[player.order - 1] = this.createPlayer(key, player)

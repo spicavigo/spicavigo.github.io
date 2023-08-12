@@ -4,6 +4,7 @@ class DashboardController {
         this.database = database;
         this.user = new User(database);
         this.user.init(this.init.bind(this));
+        this.categoryMap = {};
     }
 
     categorySubmit(e) {
@@ -24,8 +25,26 @@ class DashboardController {
         this.qm.removeCategory(e.target.dataset.key);
     }
 
+    filter() {
+        var cat = document.querySelector("#filter").value;
+        document.querySelectorAll('#questions .question').forEach(e => {
+            var category = e.querySelector('.catname').textContent;
+            if (category == cat || cat == "__all__") {
+                e.style.display = "block";
+            } else {
+                e.style.display = "none";
+            }
+        })
+    }
 
     updateCategories(categories) {
+        document.querySelector("#filter").innerHTML = '<option value="__all__">All</option>';
+        categories.forEach(item => {
+            var e = item[1];
+            document.querySelector("#filter").innerHTML += '<option value="' + e + '">' + e + '</option>';
+        });
+        document.querySelector("#filter").onchange = this.filter;
+
         var sel = document.getElementById("cat-options").options;
         for (var i = 1; i < sel.length; i++) { // looping over the options
             sel.remove(i);
@@ -132,6 +151,12 @@ class DashboardController {
         questions.forEach(question => {
             var container = document.createElement("div");
             container.className = "question";
+            container.id = question.key;
+
+            if (!this.categoryMap.hasOwnProperty[question.category]) {
+                this.categoryMap[question.category] = Object.keys(this.categoryMap).length;
+            }
+            container.classList.add("category-" + this.categoryMap[question.category]);
 
             var editor = document.createElement("div")
             editor.className = "question-content";
@@ -157,6 +182,7 @@ class DashboardController {
             var catHeading = document.createElement("h2")
             catHeading.textContent = "Category";
             var category = document.createElement("div")
+            category.classList.add("catname");
             category.textContent = question.category;
 
             var trashIcon = document.createElement("i")

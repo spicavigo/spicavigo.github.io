@@ -4,7 +4,8 @@ const State = Object.freeze({
     ToSelectCell: 1,
     ToShowCategory: 2,
     ToShowQuestion: 3,
-    Finished: 4
+    ToShowAnswer: 4,
+    Finished: 5
 });
 
 const CellType = Object.freeze({

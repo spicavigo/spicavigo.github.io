@@ -72,6 +72,14 @@ class MainGameController {
         });
     }
 
+    addAnswer(answer, isCorrect) {
+        this.gm.updateGameState({
+            "answer": answer,
+            "isCorrect": isCorrect,
+            "state": State.ToShowAnswer
+        });
+    }
+
     selectAnswer(isCorrect) {
         // new state will be toroll
         // if answer is correct and the current cell is HQ, then player's wedge will be updated
@@ -123,6 +131,7 @@ class MainGameController {
         this.showCategoryInfo(this.gm.getCategories());
         var currentPlayer = this.gm.getCurrentPlayer();
         this.showCurrentPlayer(currentPlayer.displayName);
+        this.showHideButtons();
         // If I am current player, then
         // 	1. If the state is toroll, enable roll button
         // 	2. If the state is ToSelectCell,
@@ -146,6 +155,9 @@ class MainGameController {
                 break;
             case State.ToShowQuestion:
                 this.toShowQuestion(state);
+                break;
+            case State.ToShowAnswer:
+                this.toShowAnswer(state);
                 break;
             case State.Finished:
                 this.finishGame();
@@ -181,7 +193,14 @@ class MainGameController {
         this.disableRoll();
         this.stopPulsatingCells();
         this.showQADialog(this.gm.getCurrentQuestion());
-        this.addSelectAnswerEvent(this.selectAnswer.bind(this), this.gm.getCurrentQuestion());
+        this.addSelectAnswerEvent(this.addAnswer.bind(this), this.gm.getCurrentQuestion());
+    }
+
+    toShowAnswer(state) {
+        this.disableRoll();
+        this.stopPulsatingCells();
+        this.showQADialog(this.gm.getCurrentQuestion());
+        this.addSubmitAnswerEvent(this.selectAnswer.bind(this), this.gm.getCurrentQuestion(), this.gm.getIsCorrect(), this.gm.getAnswer())
     }
 
     finishGame() {
@@ -225,8 +244,28 @@ class MainGameController {
         document.getElementById("currentPlayer").innerHTML = playerName;
     }
 
+    isMyTurn() {
+        return this.user.username == this.gm.getCurrentPlayer().username;
+    }
+
+    showHideButtons() {
+        if (this.isMyTurn()) {
+            document.getElementById("answer-button").style.visibility = "visible";
+            document.getElementById("category-button").style.visibility = "visible";
+        } else {
+            document.getElementById("answer-button").style.visibility = "hidden";
+            document.getElementById("category-button").style.visibility = "hidden";
+        }
+    }
+
     enableRoll() {
-        document.getElementById("roll-button").style.visibility = "visible";
+        // Only enable if the current player is me
+        if (this.isMyTurn()) {
+            document.getElementById("roll-button").style.visibility = "visible";
+        } else {
+            this.disableRoll();
+        }
+
     }
 
     disableRoll() {
@@ -283,8 +322,13 @@ class MainGameController {
     }
 
     showQADialog(question) {
+        if (document.querySelector("dialog .tab1").id == question.key) {
+            return;
+        }
         document.querySelector("dialog .tab2").style.display = "none";
         document.querySelector("dialog .tab1").style.display = "block";
+        document.querySelector("dialog .tab1").id = question.key;
+        document.querySelector("#answer-button").textContent = "Reveal Answer";
 
         this.qContainer.setContents(question.question);
 
@@ -367,6 +411,9 @@ class MainGameController {
     }
 
     addSelectCellEvent(cellIds, callback) {
+        if (!this.isMyTurn()) {
+            return;
+        }
         cellIds.forEach(cellId => {
             var elem = this.getCell(cellId);
             elem.onclick = function () { callback(cellId) };
@@ -383,6 +430,7 @@ class MainGameController {
     addSelectAnswerEvent(callback, question) {
         var self = this;
         document.querySelector("#answer-button").onclick = function () {
+            document.querySelector("#answer-button").textContent = "Submit Answer";
             var elem = document.querySelector('input[name="answer"]:checked');
             if (elem == null) {
                 return;
@@ -403,12 +451,33 @@ class MainGameController {
                 }
 
             });
+            callback(answer, isCorrect);
 
-            document.querySelector("#answer-button").onclick = function () {
+        }
+    }
 
-                self.hideDialog();
-                callback(isCorrect, answer);
+    addSubmitAnswerEvent(callback, question, isCorrect, answer) {
+        var self = this;
+        document.querySelector("#answer-button").textContent = "Submit Answer";
+        // Add check and cross to answers
+        document.querySelectorAll('input[name="answer"]').forEach(node => {
+            if (node.value == answer) {
+                node.checked = true;
             }
+            if (node.value == question.answer) {
+                if (!node.parentElement.classList.contains('gg-check')) {
+                    node.parentElement.classList.add('gg-check');
+                }
+            } else if (node.value == answer) {
+                if (!node.parentElement.classList.contains('gg-close')) {
+                    node.parentElement.classList.add('gg-close');
+                }
+            }
+
+        });
+        document.querySelector("#answer-button").onclick = function () {
+            self.hideDialog();
+            callback(isCorrect);
         }
     }
 

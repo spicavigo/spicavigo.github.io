@@ -105,16 +105,16 @@ class QuestionManager {
 			self.questionsList.push(question);
 			self.questions[question.key] = question;
 		});
+		this.questionsUpdateListener(this.questionsList);
+	}
+
+	getQuestion(category, filter) {
 		// Shuffle
 		this.questionsList = this.questionsList
 			.map(value => ({ value, sort: Math.random() }))
 			.sort((a, b) => a.sort - b.sort)
 			.map(({ value }) => value);
 
-		this.questionsUpdateListener(this.questionsList);
-	}
-
-	getQuestion(category, filter) {
 		for (const question of this.questionsList) {
 			if (question.category == category && !filter.has(question.key)) {
 				return question;
