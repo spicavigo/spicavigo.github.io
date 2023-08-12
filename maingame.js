@@ -250,11 +250,11 @@ class MainGameController {
 
     showHideButtons() {
         if (this.isMyTurn()) {
-            document.getElementById("answer-button").style.visibility = "visible";
-            document.getElementById("category-button").style.visibility = "visible";
+            document.getElementById("answer-button").parent.parent.style.visibility = "visible";
+            document.getElementById("category-button").parent.parent.style.visibility = "visible";
         } else {
-            document.getElementById("answer-button").style.visibility = "hidden";
-            document.getElementById("category-button").style.visibility = "hidden";
+            document.getElementById("answer-button").parent.parent.style.visibility = "hidden";
+            document.getElementById("category-button").parent.parent.style.visibility = "hidden";
         }
     }
 
