@@ -80,7 +80,7 @@ class StartGameController {
 			var displayName = document.forms["newgame"].player4.selectedOptions[0].text
 			players.add(Player.createPlayer(username, displayName, 4));
 		}
-		if (this.validateForm(categories, players)) {
+		if (this.validateForm(categories, Array.from(players))) {
 			var gm = GameManager.createGame(this.database, this.teacherId, categories, Array.from(players));
 			window.location.href = "game.html?gameid=" + gm.gameId
 		}
