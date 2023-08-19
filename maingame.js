@@ -390,10 +390,10 @@ class MainGameController {
                     break;
             }
             var suffix = " (Online)"
-            if (!player.isOnline) {
-                color += " offline";
-                suffix = " (Offline)"
-            }
+            //if (!player.isOnline) {
+            //    color += " offline";
+            //    suffix = " (Offline)"
+            //}
             info.innerHTML += '<div class="' + color + '">' + player.displayName + suffix + '</div>';
         }
     }
